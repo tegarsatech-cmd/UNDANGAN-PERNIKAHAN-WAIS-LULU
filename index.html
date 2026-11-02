@@ -1,0 +1,2891 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan Pernikahan - Wais & Lulu | 14 Maret 2027</title>
+  <meta name="description" content="Undangan Pernikahan Digital Wais Alqori & Lulu Deviyanti - Minggu, 14 Maret 2027 di Sragi, Pekalongan.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;600;700;800&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            beige: {
+              50: '#FDFCF9',
+              100: '#FAF6F0',
+              200: '#F4ECE1',
+              300: '#EBDDCB',
+              400: '#DEC9B1',
+              500: '#CDB293',
+              600: '#B49371',
+              700: '#8E7051',
+              800: '#67513B',
+              900: '#3D2F22'
+            },
+            pampas: {
+              light: '#F5EFEB',
+              DEFAULT: '#E5D6C5',
+              dark: '#A89279'
+            },
+            earth: {
+              gold: '#C5A059',
+              terracotta: '#B86F52',
+              taupe: '#6C584C',
+              dark: '#26221F'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+            cinzel: ['"Cinzel"', 'serif'],
+            script: ['"Great Vibes"', 'cursive'],
+            calligraphy: ['"Alex Brush"', 'cursive'],
+            arabic: ['"Amiri"', 'serif']
+          },
+          boxShadow: {
+            'soft': '0 10px 30px -10px rgba(108, 88, 76, 0.1)',
+            'card': '0 15px 35px -5px rgba(61, 47, 34, 0.08), 0 5px 15px rgba(0, 0, 0, 0.03)',
+            'floating': '0 20px 40px -10px rgba(45, 34, 25, 0.2)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Decorative Elements & Animations */
+    body {
+      background-color: #FAF6F0;
+      color: #3D2F22;
+      overflow-x: hidden;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* Subtle Paper Texture Background */
+    .bg-paper-texture {
+      background-color: #FAF6F0;
+      background-image: 
+        radial-gradient(#E8DCCD 0.75px, transparent 0.75px), 
+        radial-gradient(#E8DCCD 0.75px, #FAF6F0 0.75px);
+      background-size: 30px 30px;
+      background-position: 0 0, 15px 15px;
+    }
+
+    /* Soft Blur Glassmorphism */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(222, 201, 177, 0.45);
+    }
+
+    .glass-card-dark {
+      background: rgba(38, 34, 31, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(197, 160, 89, 0.3);
+    }
+
+    /* Pulse Glow Animation */
+    @keyframes subtlePulse {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.04); opacity: 1; }
+    }
+    .animate-pulse-slow {
+      animation: subtlePulse 4s infinite ease-in-out;
+    }
+
+    @keyframes rotateRecord {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .spinning-disc {
+      animation: rotateRecord 8s linear infinite;
+    }
+    .spinning-disc.paused {
+      animation-play-state: paused;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FAF6F0;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #DEC9B1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #B49371;
+    }
+
+    /* Floating Flower Petals / Pampas Seeds Canvas */
+    #petals-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 30;
+    }
+
+    /* Lock body scroll when modal cover is active */
+    body.locked {
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    /* Wave effect */
+    .pampas-stem {
+      transform-origin: bottom center;
+      animation: sway 4.8s ease-in-out infinite alternate;
+    }
+
+    /* ======================================================== */
+    /* ANIMASI ORNAMEN (DAUN, BUNGA & PAMPAS) TERTIPU ANGIN PELAN */
+    /* ======================================================== */
+
+    /* 1. @keyframes sway: Rotasi ringan bolak-balik secara terus-menerus */
+    @keyframes sway {
+      0% {
+        transform: rotate(-3deg);
+      }
+      100% {
+        transform: rotate(3deg);
+      }
+    }
+
+    /* 2. @keyframes breeze: Gerakan embusan angin lembut alami (rotasi halus + pergeseran mikro) */
+    @keyframes breeze {
+      0% {
+        transform: rotate(-2.5deg) translate(0px, 0px);
+      }
+      50% {
+        transform: rotate(1deg) translate(1.5px, -1.5px);
+      }
+      100% {
+        transform: rotate(3.5deg) translate(-1px, 2px);
+      }
+    }
+
+    /* Variasi Sway & Breeze untuk Sudut Kiri Atas (Anchor: Top Left 0% 0%) */
+    @keyframes swayTL {
+      0% {
+        transform: rotate(-2deg) scale(1);
+      }
+      100% {
+        transform: rotate(3.5deg) scale(1.03);
+      }
+    }
+
+    /* Variasi Sway & Breeze untuk Sudut Kanan Atas (Flipped horizontally, Anchor: Top Right 100% 0%) */
+    @keyframes swayTR {
+      0% {
+        transform: scaleX(-1) rotate(-2deg) scale(1);
+      }
+      100% {
+        transform: scaleX(-1) rotate(3.5deg) scale(1.03);
+      }
+    }
+
+    /* Variasi Sway & Breeze untuk Sudut Kiri Bawah (Flipped vertically, Anchor: Bottom Left 0% 100%) */
+    @keyframes swayBL {
+      0% {
+        transform: scaleY(-1) rotate(-2deg) scale(1);
+      }
+      100% {
+        transform: scaleY(-1) rotate(3.5deg) scale(1.03);
+      }
+    }
+
+    /* Variasi Sway & Breeze untuk Sudut Kanan Bawah (Rotated 180deg, Anchor: Bottom Right 100% 100%) */
+    @keyframes swayBR {
+      0% {
+        transform: rotate(180deg) rotate(-2deg) scale(1);
+      }
+      100% {
+        transform: rotate(180deg) rotate(3.5deg) scale(1.03);
+      }
+    }
+
+    /* Variasi Breeze untuk Batas Sisi Layar Kiri (Anchor: Left Center 0% 50%) */
+    @keyframes breezeLeft {
+      0% {
+        transform: rotate(-3deg) translate(0px, 0px);
+      }
+      100% {
+        transform: rotate(3deg) translate(3px, 2px);
+      }
+    }
+
+    /* Variasi Breeze untuk Batas Sisi Layar Kanan (Anchor: Right Center 100% 50%) */
+    @keyframes breezeRight {
+      0% {
+        transform: rotate(3deg) translate(0px, 0px);
+      }
+      100% {
+        transform: rotate(-3deg) translate(-3px, 2px);
+      }
+    }
+
+    /* Animasi Mikro untuk Tangkai Ranting Daun & Rumput Pampas Individual */
+    @keyframes swayLeaf {
+      0% {
+        transform: rotate(-4.5deg);
+      }
+      100% {
+        transform: rotate(4.5deg);
+      }
+    }
+
+    @keyframes swayLeafAlt {
+      0% {
+        transform: rotate(4deg);
+      }
+      100% {
+        transform: rotate(-4deg);
+      }
+    }
+
+    @keyframes cornerGlow {
+      0%, 100% { filter: drop-shadow(0 2px 6px rgba(197, 160, 89, 0.2)); opacity: 0.85; }
+      50% { filter: drop-shadow(0 5px 14px rgba(197, 160, 89, 0.45)); opacity: 1; }
+    }
+    @keyframes cornerSparkle {
+      0%, 100% { opacity: 0.25; transform: scale(0.65) rotate(0deg); }
+      50% { opacity: 1; transform: scale(1.2) rotate(45deg); }
+    }
+
+    /* Utility Classes Ornamen */
+    .animate-sway {
+      animation: sway 5.5s ease-in-out infinite alternate;
+    }
+    .animate-breeze {
+      animation: breeze 6.5s ease-in-out infinite alternate;
+    }
+
+    /* Ornamen Sudut Layar & Kartu Slide */
+    .corner-anim-tl {
+      transform-origin: top left;
+      animation: swayTL 5.8s ease-in-out infinite alternate, cornerGlow 5s ease-in-out infinite;
+    }
+    .corner-anim-tr {
+      transform-origin: top right;
+      animation: swayTR 6.4s ease-in-out infinite alternate, cornerGlow 5s ease-in-out infinite;
+    }
+    .corner-anim-bl {
+      transform-origin: bottom left;
+      animation: swayBL 6.8s ease-in-out infinite alternate, cornerGlow 5s ease-in-out infinite;
+    }
+    .corner-anim-br {
+      transform-origin: bottom right;
+      animation: swayBR 6.2s ease-in-out infinite alternate, cornerGlow 5s ease-in-out infinite;
+    }
+
+    /* Ornamen Sisi Batas Layar */
+    .edge-anim-left {
+      transform-origin: left center;
+      animation: breezeLeft 6.6s ease-in-out infinite alternate;
+    }
+    .edge-anim-right {
+      transform-origin: right center;
+      animation: breezeRight 7.2s ease-in-out infinite alternate;
+    }
+    .edge-anim-top {
+      transform-origin: top center;
+      animation: sway 6.5s ease-in-out infinite alternate;
+    }
+    .edge-anim-bottom {
+      transform-origin: bottom center;
+      animation: sway 6.5s ease-in-out infinite alternate;
+    }
+
+    .leaf-sway-1 {
+      transform-origin: bottom left;
+      animation: swayLeaf 4.2s ease-in-out infinite alternate;
+    }
+    .leaf-sway-2 {
+      transform-origin: bottom right;
+      animation: swayLeafAlt 5s ease-in-out infinite alternate 0.4s;
+    }
+    .leaf-sway-3 {
+      transform-origin: center center;
+      animation: swayLeaf 5.6s ease-in-out infinite alternate 1s;
+    }
+    .corner-sparkle-1 { animation: cornerSparkle 3s ease-in-out infinite; }
+    .corner-sparkle-2 { animation: cornerSparkle 3.6s ease-in-out infinite 0.8s; }
+    .corner-sparkle-3 { animation: cornerSparkle 4.2s ease-in-out infinite 1.5s; }
+    .corner-sparkle-4 { animation: cornerSparkle 3.2s ease-in-out infinite 2.2s; }
+
+    /* Interactive Slide Card Hover Effects */
+    .slide-card {
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+    }
+    .slide-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px -10px rgba(61, 47, 34, 0.12), 0 8px 20px rgba(197, 160, 89, 0.08);
+      border-color: rgba(197, 160, 89, 0.55);
+    }
+
+    /* Active Nav Item Highlighting */
+    .nav-item {
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    .nav-item.active {
+      color: #C5A059 !important;
+      transform: scale(1.12);
+    }
+    .nav-item.active i {
+      filter: drop-shadow(0 0 7px rgba(197, 160, 89, 0.8));
+    }
+    .nav-item.active span {
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+  </style>
+</head>
+<body class="bg-paper-texture text-beige-900 locked relative selection:bg-beige-300 selection:text-beige-900">
+
+  <!-- ======================================================== -->
+  <!-- ANIMATED BOTANICAL CORNER & EDGE ORNAMENTS (SUDUT & SISI BATAS LAYAR) -->
+  <!-- ======================================================== -->
+  <div id="corner-ornaments-root" class="fixed inset-0 pointer-events-none z-30 overflow-hidden">
+    <!-- 1. Pojok Kiri Atas (Top-Left Corner) -->
+    <div class="absolute -top-2 -left-2 w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 corner-anim-tl select-none">
+      <svg viewBox="0 0 120 120" fill="none" class="w-full h-full drop-shadow-sm">
+        <path d="M4 116 C12 60 55 18 116 4" stroke="#C5A059" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M4 90 C18 50 50 18 90 4" stroke="#DEC9B1" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="2 3"/>
+        <g class="leaf-sway-1">
+          <path d="M30 65 C22 48 32 38 42 42 C38 52 38 60 30 65 Z" fill="#CDB293" opacity="0.85"/>
+        </g>
+        <g class="leaf-sway-2">
+          <path d="M65 30 C48 22 38 32 42 42 C52 38 60 38 65 30 Z" fill="#B49371" opacity="0.85"/>
+        </g>
+        <g class="leaf-sway-3">
+          <path d="M48 48 C36 30 50 20 60 26 C56 38 54 44 48 48 Z" fill="#DEC9B1" opacity="0.9"/>
+          <path d="M18 45 C10 35 18 25 28 30 C24 38 22 42 18 45 Z" fill="#DEC9B1" opacity="0.75"/>
+          <path d="M45 18 C35 10 25 18 30 28 C38 24 42 22 45 18 Z" fill="#CDB293" opacity="0.75"/>
+        </g>
+        <circle cx="28" cy="28" r="3.5" fill="#C5A059"/>
+        <circle cx="28" cy="28" r="1.5" fill="#FAF6F0"/>
+        <circle cx="78" cy="18" r="2.5" fill="#B86F52"/>
+        <circle cx="18" cy="78" r="2.5" fill="#B86F52"/>
+        <g class="corner-sparkle-1" transform-origin="54 54">
+          <path d="M54 48 L56 52 L60 54 L56 56 L54 60 L52 56 L48 54 L52 52 Z" fill="#C5A059"/>
+        </g>
+        <circle cx="95" cy="12" r="1.5" fill="#C5A059" class="corner-sparkle-3"/>
+        <circle cx="12" cy="95" r="1.5" fill="#C5A059" class="corner-sparkle-3"/>
+      </svg>
+    </div>
+
+    <!-- 2. Pojok Kanan Atas (Top-Right Corner) -->
+    <div class="absolute -top-2 -right-2 w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 corner-anim-tr select-none">
+      <svg viewBox="0 0 120 120" fill="none" class="w-full h-full drop-shadow-sm">
+        <path d="M4 116 C12 60 55 18 116 4" stroke="#C5A059" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M4 90 C18 50 50 18 90 4" stroke="#DEC9B1" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="2 3"/>
+        <g class="leaf-sway-2">
+          <path d="M30 65 C22 48 32 38 42 42 C38 52 38 60 30 65 Z" fill="#CDB293" opacity="0.85"/>
+        </g>
+        <g class="leaf-sway-1">
+          <path d="M65 30 C48 22 38 32 42 42 C52 38 60 38 65 30 Z" fill="#B49371" opacity="0.85"/>
+        </g>
+        <g class="leaf-sway-3">
+          <path d="M48 48 C36 30 50 20 60 26 C56 38 54 44 48 48 Z" fill="#DEC9B1" opacity="0.9"/>
+          <path d="M18 45 C10 35 18 25 28 30 C24 38 22 42 18 45 Z" fill="#DEC9B1" opacity="0.75"/>
+          <path d="M45 18 C35 10 25 18 30 28 C38 24 42 22 45 18 Z" fill="#CDB293" opacity="0.75"/>
+        </g>
+        <circle cx="28" cy="28" r="3.5" fill="#C5A059"/>
+        <circle cx="28" cy="28" r="1.5" fill="#FAF6F0"/>
+        <circle cx="78" cy="18" r="2.5" fill="#B86F52"/>
+        <circle cx="18" cy="78" r="2.5" fill="#B86F52"/>
+        <g class="corner-sparkle-2" transform-origin="54 54">
+          <path d="M54 48 L56 52 L60 54 L56 56 L54 60 L52 56 L48 54 L52 52 Z" fill="#C5A059"/>
+        </g>
+        <circle cx="95" cy="12" r="1.5" fill="#C5A059" class="corner-sparkle-4"/>
+        <circle cx="12" cy="95" r="1.5" fill="#C5A059" class="corner-sparkle-4"/>
+      </svg>
+    </div>
+
+    <!-- 3. Pojok Kiri Bawah (Bottom-Left Corner) -->
+    <div class="absolute -bottom-2 -left-2 w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 corner-anim-bl select-none">
+      <svg viewBox="0 0 120 120" fill="none" class="w-full h-full drop-shadow-sm">
+        <path d="M4 116 C12 60 55 18 116 4" stroke="#C5A059" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M4 90 C18 50 50 18 90 4" stroke="#DEC9B1" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="2 3"/>
+        <g class="leaf-sway-1">
+          <path d="M30 65 C22 48 32 38 42 42 C38 52 38 60 30 65 Z" fill="#CDB293" opacity="0.85"/>
+        </g>
+        <g class="leaf-sway-2">
+          <path d="M65 30 C48 22 38 32 42 42 C52 38 60 38 65 30 Z" fill="#B49371" opacity="0.85"/>
+        </g>
+        <g class="leaf-sway-3">
+          <path d="M48 48 C36 30 50 20 60 26 C56 38 54 44 48 48 Z" fill="#DEC9B1" opacity="0.9"/>
+          <path d="M18 45 C10 35 18 25 28 30 C24 38 22 42 18 45 Z" fill="#DEC9B1" opacity="0.75"/>
+          <path d="M45 18 C35 10 25 18 30 28 C38 24 42 22 45 18 Z" fill="#CDB293" opacity="0.75"/>
+        </g>
+        <circle cx="28" cy="28" r="3.5" fill="#C5A059"/>
+        <circle cx="28" cy="28" r="1.5" fill="#FAF6F0"/>
+        <circle cx="78" cy="18" r="2.5" fill="#B86F52"/>
+        <circle cx="18" cy="78" r="2.5" fill="#B86F52"/>
+        <g class="corner-sparkle-3" transform-origin="54 54">
+          <path d="M54 48 L56 52 L60 54 L56 56 L54 60 L52 56 L48 54 L52 52 Z" fill="#C5A059"/>
+        </g>
+        <circle cx="95" cy="12" r="1.5" fill="#C5A059" class="corner-sparkle-1"/>
+        <circle cx="12" cy="95" r="1.5" fill="#C5A059" class="corner-sparkle-1"/>
+      </svg>
+    </div>
+
+    <!-- 4. Pojok Kanan Bawah (Bottom-Right Corner) -->
+    <div class="absolute -bottom-2 -right-2 w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 corner-anim-br select-none">
+      <svg viewBox="0 0 120 120" fill="none" class="w-full h-full drop-shadow-sm">
+        <path d="M4 116 C12 60 55 18 116 4" stroke="#C5A059" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M4 90 C18 50 50 18 90 4" stroke="#DEC9B1" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="2 3"/>
+        <g class="leaf-sway-2">
+          <path d="M30 65 C22 48 32 38 42 42 C38 52 38 60 30 65 Z" fill="#CDB293" opacity="0.85"/>
+        </g>
+        <g class="leaf-sway-1">
+          <path d="M65 30 C48 22 38 32 42 42 C52 38 60 38 65 30 Z" fill="#B49371" opacity="0.85"/>
+        </g>
+        <g class="leaf-sway-3">
+          <path d="M48 48 C36 30 50 20 60 26 C56 38 54 44 48 48 Z" fill="#DEC9B1" opacity="0.9"/>
+          <path d="M18 45 C10 35 18 25 28 30 C24 38 22 42 18 45 Z" fill="#DEC9B1" opacity="0.75"/>
+          <path d="M45 18 C35 10 25 18 30 28 C38 24 42 22 45 18 Z" fill="#CDB293" opacity="0.75"/>
+        </g>
+        <circle cx="28" cy="28" r="3.5" fill="#C5A059"/>
+        <circle cx="28" cy="28" r="1.5" fill="#FAF6F0"/>
+        <circle cx="78" cy="18" r="2.5" fill="#B86F52"/>
+        <circle cx="18" cy="78" r="2.5" fill="#B86F52"/>
+        <g class="corner-sparkle-4" transform-origin="54 54">
+          <path d="M54 48 L56 52 L60 54 L56 56 L54 60 L52 56 L48 54 L52 52 Z" fill="#C5A059"/>
+        </g>
+        <circle cx="95" cy="12" r="1.5" fill="#C5A059" class="corner-sparkle-2"/>
+        <circle cx="12" cy="95" r="1.5" fill="#C5A059" class="corner-sparkle-2"/>
+      </svg>
+    </div>
+
+    <!-- 5. Batas Sisi Layar Kiri (Left Edge Border Pampas & Leaves) -->
+    <div class="absolute top-[38%] -left-1 w-12 sm:w-16 md:w-20 h-28 sm:h-36 md:h-44 edge-anim-left select-none opacity-80 pointer-events-none">
+      <svg viewBox="0 0 70 120" fill="none" class="w-full h-full drop-shadow-sm">
+        <path d="M0 60 C25 55 45 40 55 15" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M0 60 C20 65 40 75 50 100" stroke="#DEC9B1" stroke-width="1.3" stroke-linecap="round"/>
+        <g class="leaf-sway-1">
+          <path d="M30 45 C35 32 48 30 52 38 C48 48 38 48 30 45 Z" fill="#CDB293" opacity="0.85"/>
+        </g>
+        <g class="leaf-sway-2">
+          <path d="M42 24 C48 12 60 14 62 22 C56 30 48 30 42 24 Z" fill="#B49371" opacity="0.85"/>
+        </g>
+        <g class="leaf-sway-3">
+          <path d="M25 70 C35 78 35 90 28 96 C24 88 20 80 25 70 Z" fill="#DEC9B1" opacity="0.85"/>
+          <path d="M38 85 C48 92 46 104 38 108 C34 100 32 94 38 85 Z" fill="#CDB293" opacity="0.8"/>
+        </g>
+        <circle cx="56" cy="14" r="2.5" fill="#C5A059"/>
+        <circle cx="51" cy="101" r="2" fill="#B86F52"/>
+      </svg>
+    </div>
+
+    <!-- 6. Batas Sisi Layar Kanan (Right Edge Border Pampas & Leaves) -->
+    <div class="absolute top-[62%] -right-1 w-12 sm:w-16 md:w-20 h-28 sm:h-36 md:h-44 edge-anim-right select-none opacity-80 pointer-events-none">
+      <svg viewBox="0 0 70 120" fill="none" class="w-full h-full drop-shadow-sm -scale-x-100">
+        <path d="M0 60 C25 55 45 40 55 15" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M0 60 C20 65 40 75 50 100" stroke="#DEC9B1" stroke-width="1.3" stroke-linecap="round"/>
+        <g class="leaf-sway-2">
+          <path d="M30 45 C35 32 48 30 52 38 C48 48 38 48 30 45 Z" fill="#CDB293" opacity="0.85"/>
+        </g>
+        <g class="leaf-sway-1">
+          <path d="M42 24 C48 12 60 14 62 22 C56 30 48 30 42 24 Z" fill="#B49371" opacity="0.85"/>
+        </g>
+        <g class="leaf-sway-3">
+          <path d="M25 70 C35 78 35 90 28 96 C24 88 20 80 25 70 Z" fill="#DEC9B1" opacity="0.85"/>
+          <path d="M38 85 C48 92 46 104 38 108 C34 100 32 94 38 85 Z" fill="#CDB293" opacity="0.8"/>
+        </g>
+        <circle cx="56" cy="14" r="2.5" fill="#C5A059"/>
+        <circle cx="51" cy="101" r="2" fill="#B86F52"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Background Petals / Floral Dust Canvas -->
+  <canvas id="petals-canvas"></canvas>
+
+  <!-- Background Audio Element -->
+  <audio id="wedding-audio" loop preload="auto">
+    <!-- Beautiful Romantic Wedding Instrumental Audio -->
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=romantic-wedding-piano-10023.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- ======================================================== -->
+  <!-- FLOATING AUDIO CONTROL BUTTON -->
+  <!-- ======================================================== -->
+  <div id="audio-control-container" class="fixed top-5 right-5 z-40 hidden">
+    <button id="audio-toggle-btn" 
+            class="group w-11 h-11 sm:w-12 sm:h-12 rounded-full glass-card border border-beige-300 flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95 hover:border-earth-gold" 
+            aria-label="Musik Latar">
+      <div id="audio-disc" class="w-8 h-8 rounded-full bg-earth-dark flex items-center justify-center spinning-disc shadow-inner border border-earth-gold/40">
+        <i id="audio-icon" class="fa-solid fa-compact-disc text-earth-gold text-sm group-hover:rotate-45 transition-transform"></i>
+      </div>
+    </button>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- 1. COVER HALAMAN (FULL SCREEN HERO MODAL) -->
+  <!-- ======================================================== -->
+  <section id="cover-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-beige-100/95 backdrop-blur-md px-4 py-8 overflow-y-auto transition-all duration-1000">
+    <!-- Top & Bottom Pampas & Floral Borders for Cover -->
+    <div class="absolute top-0 left-0 right-0 pointer-events-none opacity-80 flex justify-center overflow-hidden edge-anim-top">
+      <svg class="w-full max-w-2xl h-28 text-beige-400" viewBox="0 0 600 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0C150 70 450 70 600 0V30C450 90 150 90 0 30V0Z" fill="url(#pampas-grad-top)" opacity="0.25"/>
+        <g class="leaf-sway-1">
+          <path d="M300 10C270 40 220 50 170 30C210 65 260 70 295 45L300 80L305 45C340 70 390 65 430 30C380 50 330 40 300 10Z" fill="#CDB293" opacity="0.6"/>
+        </g>
+        <circle cx="300" cy="85" r="4" fill="#C5A059"/>
+        <circle cx="280" cy="75" r="3" fill="#DEC9B1"/>
+        <circle cx="320" cy="75" r="3" fill="#DEC9B1"/>
+        <defs>
+          <linearGradient id="pampas-grad-top" x1="0" y1="0" x2="600" y2="120" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#C5A059"/>
+            <stop offset="0.5" stop-color="#CDB293"/>
+            <stop offset="1" stop-color="#DEC9B1"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <!-- Main Cover Content Card -->
+    <div class="max-w-md w-full glass-card rounded-3xl p-8 sm:p-10 text-center shadow-floating border border-beige-300 relative overflow-hidden my-auto" data-aos="zoom-in" data-aos-duration="1000">
+      
+      <!-- Card Corner Botanical Ornaments (All 4 Corners) -->
+      <div class="absolute -top-3 -left-3 w-16 h-16 sm:w-20 sm:h-20 pointer-events-none corner-anim-tl opacity-65 z-10 select-none">
+        <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+          <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+          <g class="leaf-sway-1">
+            <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+          </g>
+          <g class="leaf-sway-2">
+            <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+          </g>
+          <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+          <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+          <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+        </svg>
+      </div>
+
+      <div class="absolute -top-3 -right-3 w-16 h-16 sm:w-20 sm:h-20 pointer-events-none corner-anim-tr opacity-65 z-10 select-none">
+        <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+          <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+          <g class="leaf-sway-2">
+            <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+          </g>
+          <g class="leaf-sway-1">
+            <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+          </g>
+          <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+          <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+          <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+        </svg>
+      </div>
+
+      <div class="absolute -bottom-3 -left-3 w-16 h-16 sm:w-20 sm:h-20 pointer-events-none corner-anim-bl opacity-65 z-10 select-none">
+        <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+          <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+          <g class="leaf-sway-1">
+            <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+          </g>
+          <g class="leaf-sway-2">
+            <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+          </g>
+          <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+          <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+          <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+        </svg>
+      </div>
+
+      <div class="absolute -bottom-3 -right-3 w-16 h-16 sm:w-20 sm:h-20 pointer-events-none corner-anim-br opacity-65 z-10 select-none">
+        <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+          <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+          <g class="leaf-sway-2">
+            <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+          </g>
+          <g class="leaf-sway-1">
+            <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+          </g>
+          <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+          <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+          <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+        </svg>
+      </div>
+
+      <!-- Header Subtitle -->
+      <div class="space-y-1 mb-5">
+        <p class="text-xs uppercase tracking-[0.35em] text-beige-700 font-medium">The Wedding Celebration of</p>
+        <div class="flex items-center justify-center gap-2 pt-1">
+          <span class="h-[1px] w-10 bg-beige-300"></span>
+          <i class="fa-solid fa-feather-pointed text-xs text-earth-gold"></i>
+          <span class="h-[1px] w-10 bg-beige-300"></span>
+        </div>
+      </div>
+
+      <!-- Couple Names on Cover -->
+      <div class="my-6">
+        <h1 class="font-script text-5xl sm:text-6xl text-beige-900 leading-tight tracking-wide drop-shadow-sm">
+          Wais & Lulu
+        </h1>
+        <div class="flex items-center justify-center gap-3 mt-3">
+          <span class="h-[1px] w-12 bg-earth-gold/40"></span>
+          <p class="font-cinzel text-xs tracking-[0.25em] text-earth-taupe uppercase font-semibold">
+            14 Maret 2027
+          </p>
+          <span class="h-[1px] w-12 bg-earth-gold/40"></span>
+        </div>
+      </div>
+
+      <!-- Kepada Yth / Tamu Undangan Section -->
+      <div class="my-7 p-5 rounded-2xl bg-white/70 border border-beige-200 shadow-sm relative">
+        <p class="text-xs text-beige-700 mb-1 font-medium">Kepada Bapak/Ibu/Saudara/i:</p>
+        <h3 id="guest-name" class="font-serif text-xl sm:text-2xl font-bold text-beige-900 capitalize tracking-wide py-1 text-earth-taupe">
+          Tamu Undangan
+        </h3>
+        <p class="text-[11px] text-beige-600 mt-1 italic">
+          *Mohon maaf apabila ada kesalahan penulisan nama & gelar
+        </p>
+      </div>
+
+      <!-- Action Button: Buka Undangan -->
+      <div>
+        <button id="btn-open-invitation" 
+                class="group w-full relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-beige-800 to-earth-dark text-beige-100 font-medium text-sm tracking-widest uppercase shadow-card hover:shadow-floating transition-all duration-300 hover:from-earth-dark hover:to-beige-900 active:scale-95 border border-earth-gold/30">
+          <i class="fa-solid fa-envelope-open text-earth-gold group-hover:-translate-y-1 transition-transform"></i>
+          <span>Buka Undangan</span>
+          <i class="fa-solid fa-arrow-down text-xs opacity-75 group-hover:translate-y-1 transition-transform animate-bounce"></i>
+        </button>
+      </div>
+
+      <p class="text-[10px] text-beige-600 tracking-wider mt-4">
+        Klik tombol di atas untuk membuka undangan & memutar musik
+      </p>
+    </div>
+
+    <!-- Bottom Pampas Ornament for Cover -->
+    <div class="absolute bottom-0 left-0 right-0 pointer-events-none opacity-80 flex justify-center overflow-hidden rotate-180 edge-anim-bottom">
+      <svg class="w-full max-w-2xl h-20 text-beige-400" viewBox="0 0 600 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0C150 70 450 70 600 0V30C450 90 150 90 0 30V0Z" fill="#EBDDCB" opacity="0.3"/>
+        <g class="leaf-sway-2">
+          <path d="M300 10C270 40 220 50 170 30C210 65 260 70 295 45L300 80L305 45C340 70 390 65 430 30C380 50 330 40 300 10Z" fill="#DEC9B1" opacity="0.5"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- MAIN INVITATION CONTENT CONTAINER -->
+  <!-- ======================================================== -->
+  <main id="main-content" class="max-w-xl mx-auto min-h-screen relative pb-32 transition-opacity duration-700">
+
+    <!-- HERO HEADER SECTION (SLIDE 1: HOME) -->
+    <header id="section-home" class="relative pt-12 pb-6 px-5 text-center overflow-hidden">
+      <div class="glass-card slide-card rounded-3xl p-8 sm:p-10 border border-beige-300 shadow-card relative overflow-hidden text-center max-w-lg mx-auto" data-aos="fade-up" data-aos-duration="1000">
+        
+        <!-- Card Corner Botanical Ornaments (All 4 Corners) -->
+        <div class="absolute -top-3 -left-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-tl opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-1">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-2">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -top-3 -right-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-tr opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-2">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-1">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -bottom-3 -left-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-bl opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-1">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-2">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -bottom-3 -right-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-br opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-2">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-1">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <!-- Decorative Dried Pampas SVG Top Header -->
+        <div class="w-full flex justify-center mb-5 edge-anim-top">
+          <svg class="w-64 sm:w-72 h-14 sm:h-16 text-beige-500" viewBox="0 0 300 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="150" cy="45" r="4" fill="#C5A059"/>
+            <path d="M150 45 C130 25, 90 20, 60 30 M150 45 C170 25, 210 20, 240 30" stroke="#CDB293" stroke-width="1.8" stroke-linecap="round"/>
+            <g class="leaf-sway-1">
+              <path d="M120 28 C115 15, 100 12, 85 18 C100 24, 110 24, 120 28Z" fill="#DEC9B1"/>
+            </g>
+            <g class="leaf-sway-2">
+              <path d="M180 28 C185 15, 200 12, 215 18 C200 24, 190 24, 180 28Z" fill="#DEC9B1"/>
+            </g>
+            <g class="pampas-stem">
+              <path d="M150 40 C146 15, 154 15, 150 5" stroke="#C5A059" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M140 22 C135 12, 142 8, 148 10" stroke="#B49371" stroke-width="1.2" stroke-linecap="round"/>
+              <path d="M160 22 C165 12, 158 8, 152 10" stroke="#B49371" stroke-width="1.2" stroke-linecap="round"/>
+            </g>
+          </svg>
+        </div>
+
+        <div>
+          <span class="inline-block px-4 py-1.5 rounded-full text-[11px] uppercase tracking-[0.25em] bg-white/80 border border-beige-300 text-beige-800 font-semibold mb-4 shadow-sm animate-breeze">
+            Walimatul 'Urs
+          </span>
+          <h2 class="font-script text-6xl sm:text-7xl text-beige-900 leading-tight">
+            Wais & Lulu
+          </h2>
+          <div class="flex items-center justify-center gap-3 mt-3">
+            <span class="h-[1px] w-10 bg-earth-gold/40"></span>
+            <p class="font-cinzel text-xs tracking-[0.3em] text-earth-taupe font-semibold uppercase">
+              Minggu, 14 Maret 2027
+            </p>
+            <span class="h-[1px] w-10 bg-earth-gold/40"></span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- SECTION DIVIDER ORNAMENT (PAMPAS & DRIED FLORAL) -->
+    <div class="flex items-center justify-center gap-3 my-4 px-8 opacity-80">
+      <span class="h-[1px] flex-1 bg-gradient-to-r from-transparent to-beige-400"></span>
+      <svg class="w-8 h-8 text-earth-gold" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2L13.8 8.2L20 10L13.8 11.8L12 18L10.2 11.8L4 10L10.2 8.2L12 2Z" opacity="0.6"/>
+        <circle cx="12" cy="10" r="1.5" fill="#B86F52"/>
+      </svg>
+      <span class="h-[1px] flex-1 bg-gradient-to-l from-transparent to-beige-400"></span>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- 2. AYAT PEMBUKA (QS. AR-RUM: 21) -->
+    <!-- ======================================================== -->
+    <section id="section-ayat" class="px-5 py-8" data-aos="fade-up" data-aos-duration="1000">
+      <div class="glass-card slide-card rounded-3xl p-7 sm:p-9 text-center shadow-card border border-beige-300 relative overflow-hidden">
+        
+        <!-- Card Corner Botanical Ornaments (All 4 Corners) -->
+        <div class="absolute -top-3 -left-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-tl opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-1">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-2">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -top-3 -right-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-tr opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-2">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-1">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -bottom-3 -left-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-bl opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-1">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-2">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -bottom-3 -right-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-br opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-2">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-1">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <!-- Bismillah Calligraphy Icon / Decoration -->
+        <div class="mb-5 flex justify-center text-earth-taupe opacity-90 animate-breeze">
+          <svg class="h-10 text-earth-taupe" viewBox="0 0 300 60" fill="currentColor">
+            <text x="50%" y="50%" text-anchor="middle" dominant-baseline="central" font-family="'Amiri', serif" font-size="28" font-weight="bold">
+              بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+            </text>
+          </svg>
+        </div>
+
+        <!-- Arabic Ayat -->
+        <p class="font-arabic text-xl sm:text-2xl text-beige-900 leading-loose sm:leading-[2.2] dir-rtl mb-6 font-normal px-2">
+          وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعELَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ
+        </p>
+
+        <!-- Divider -->
+        <div class="flex items-center justify-center gap-2 mb-5">
+          <span class="h-[1px] w-12 bg-beige-300"></span>
+          <i class="fa-solid fa-heart text-[10px] text-earth-terracotta animate-pulse-slow"></i>
+          <span class="h-[1px] w-12 bg-beige-300"></span>
+        </div>
+
+        <!-- Terjemahan -->
+        <p class="text-sm sm:text-base text-beige-800 leading-relaxed italic font-serif">
+          "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir."
+        </p>
+
+        <p class="font-semibold text-xs tracking-widest text-earth-gold uppercase mt-4">
+          — QS. Ar-Rum: 21 —
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION DIVIDER -->
+    <div class="flex items-center justify-center gap-3 my-4 px-8 opacity-70">
+      <span class="h-[1px] flex-1 bg-gradient-to-r from-transparent to-beige-400"></span>
+      <i class="fa-solid fa-leaf text-xs text-beige-600 animate-sway inline-block"></i>
+      <span class="h-[1px] flex-1 bg-gradient-to-l from-transparent to-beige-400"></span>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- 3. PROFIL MEMPELAI (BRIDE & GROOM) -->
+    <!-- ======================================================== -->
+    <section id="section-mempelai" class="px-5 py-8">
+      <!-- Section Header -->
+      <div class="text-center mb-10" data-aos="fade-up">
+        <p class="text-xs uppercase tracking-[0.3em] text-beige-700 font-semibold mb-2">Mempelai Bahagia</p>
+        <h2 class="font-serif text-3xl sm:text-4xl text-beige-900 font-bold">Pasangan Pengantin</h2>
+        <p class="text-xs text-beige-700 max-w-sm mx-auto mt-2 leading-relaxed">
+          Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud melangsungkan akad dan resepsi pernikahan kami:
+        </p>
+      </div>
+
+      <!-- MEMPELAI WANITA: LULU DEVIYANTI -->
+      <div class="glass-card slide-card rounded-3xl p-6 sm:p-8 text-center shadow-card border border-beige-300 relative mb-8 overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
+        <!-- Card Corner Botanical Ornaments (All 4 Corners) -->
+        <div class="absolute -top-3 -left-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-tl opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-1">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-2">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -top-3 -right-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-tr opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-2">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-1">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -bottom-3 -left-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-bl opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-1">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-2">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -bottom-3 -right-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-br opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-2">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-1">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <!-- Photo Frame Placeholder -->
+        <div class="relative w-40 h-48 mx-auto mb-5 rounded-t-full rounded-b-2xl overflow-hidden border-2 border-beige-400 p-1.5 shadow-md bg-white">
+          <div class="w-full h-full rounded-t-full rounded-b-xl bg-gradient-to-b from-beige-200 to-beige-300 flex flex-col items-center justify-center text-beige-700 relative overflow-hidden group">
+            <!-- Aesthetic floral silhouette / illustration inside frame -->
+            <svg class="w-20 h-20 text-beige-500 opacity-60 mb-1" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 4c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+            </svg>
+            <span class="text-[11px] font-medium tracking-wider text-beige-800">The Bride</span>
+            <!-- Pampas leaf badge -->
+            <div class="absolute bottom-1 w-full text-center">
+              <span class="text-[9px] bg-white/80 px-2 py-0.5 rounded-full text-beige-700 border border-beige-300">Foto Mempelai</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Name & Details -->
+        <h3 class="font-script text-4xl sm:text-5xl text-beige-900 leading-tight">
+          Lulu Deviyanti
+        </h3>
+        <p class="font-cinzel text-xs tracking-widest text-earth-gold font-bold uppercase mt-1 mb-3">
+          Mempelai Wanita
+        </p>
+        <p class="text-sm text-beige-800 leading-relaxed font-sans">
+          Putri kedua dari <br>
+          <span class="font-semibold text-beige-900">ALM Bapak Ichwan Widodo</span> & <span class="font-semibold text-beige-900">Ibu Umiyati</span>
+        </p>
+      </div>
+
+      <!-- AMPERSAND DIVIDER -->
+      <div class="flex items-center justify-center my-6" data-aos="zoom-in">
+        <div class="w-14 h-14 rounded-full glass-card border border-earth-gold flex items-center justify-center shadow-md animate-sway">
+          <span class="font-script text-3xl text-earth-gold font-bold">&</span>
+        </div>
+      </div>
+
+      <!-- MEMPELAI PRIA: WAIS ALQORI -->
+      <div class="glass-card slide-card rounded-3xl p-6 sm:p-8 text-center shadow-card border border-beige-300 relative overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
+        <!-- Card Corner Botanical Ornaments (All 4 Corners) -->
+        <div class="absolute -top-3 -left-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-tl opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-1">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-2">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -top-3 -right-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-tr opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-2">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-1">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -bottom-3 -left-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-bl opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-1">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-2">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -bottom-3 -right-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-br opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-2">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-1">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <!-- Photo Frame Placeholder -->
+        <div class="relative w-40 h-48 mx-auto mb-5 rounded-t-full rounded-b-2xl overflow-hidden border-2 border-beige-400 p-1.5 shadow-md bg-white">
+          <div class="w-full h-full rounded-t-full rounded-b-xl bg-gradient-to-b from-beige-200 to-beige-300 flex flex-col items-center justify-center text-beige-700 relative overflow-hidden group">
+            <!-- Aesthetic floral silhouette / illustration inside frame -->
+            <svg class="w-20 h-20 text-beige-500 opacity-60 mb-1" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 4c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+            </svg>
+            <span class="text-[11px] font-medium tracking-wider text-beige-800">The Groom</span>
+            <!-- Pampas leaf badge -->
+            <div class="absolute bottom-1 w-full text-center">
+              <span class="text-[9px] bg-white/80 px-2 py-0.5 rounded-full text-beige-700 border border-beige-300">Foto Mempelai</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Name & Details -->
+        <h3 class="font-script text-4xl sm:text-5xl text-beige-900 leading-tight">
+          Wais Alqori
+        </h3>
+        <p class="font-cinzel text-xs tracking-widest text-earth-gold font-bold uppercase mt-1 mb-3">
+          Mempelai Pria
+        </p>
+        <p class="text-sm text-beige-800 leading-relaxed font-sans">
+          Putra pertama dari <br>
+          <span class="font-semibold text-beige-900">Bapak Tarjo</span> & <span class="font-semibold text-beige-900">Ibu Umyati</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION DIVIDER -->
+    <div class="flex items-center justify-center gap-3 my-4 px-8 opacity-70">
+      <span class="h-[1px] flex-1 bg-gradient-to-r from-transparent to-beige-400"></span>
+      <i class="fa-solid fa-infinity text-xs text-earth-gold animate-sway inline-block"></i>
+      <span class="h-[1px] flex-1 bg-gradient-to-l from-transparent to-beige-400"></span>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- 4. LOVE STORY (TIMELINE) -->
+    <!-- ======================================================== -->
+    <section id="section-story" class="px-5 py-8">
+      <div class="text-center mb-10" data-aos="fade-up">
+        <p class="text-xs uppercase tracking-[0.3em] text-beige-700 font-semibold mb-2">Perjalanan Cinta</p>
+        <h2 class="font-serif text-3xl sm:text-4xl text-beige-900 font-bold">Kisah Kami</h2>
+        <p class="text-xs text-beige-700 max-w-sm mx-auto mt-2 leading-relaxed">
+          Setiap langkah dan takdir membawa kami pada ikatan suci ini.
+        </p>
+      </div>
+
+      <!-- Vertical Timeline -->
+      <div class="relative pl-6 sm:pl-8 border-l-2 border-beige-300 ml-4 sm:ml-6 space-y-8">
+        
+        <!-- Bagian 1: Awal Cerita Perkenalan Sama Orang Tua (Tanpa Tanggal) -->
+        <div class="relative group" data-aos="fade-up" data-aos-duration="900">
+          <!-- Timeline Bullet Node -->
+          <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-beige-100 border-2 border-earth-gold flex items-center justify-center shadow-sm">
+            <i class="fa-solid fa-users text-earth-gold text-xs"></i>
+          </div>
+
+          <div class="glass-card slide-card rounded-2xl p-5 sm:p-6 border border-beige-300 shadow-sm relative overflow-hidden">
+            <!-- Corner Botanical Accents -->
+            <div class="absolute -top-3 -left-3 w-12 h-12 pointer-events-none corner-anim-tl opacity-55 z-10 select-none">
+              <svg viewBox="0 0 80 80" fill="none" class="w-full h-full">
+                <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+                <g class="leaf-sway-1">
+                  <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+                </g>
+                <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+              </svg>
+            </div>
+            <div class="absolute -bottom-3 -right-3 w-12 h-12 pointer-events-none corner-anim-br opacity-55 z-10 select-none">
+              <svg viewBox="0 0 80 80" fill="none" class="w-full h-full">
+                <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+                <g class="leaf-sway-2">
+                  <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+                </g>
+                <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+              </svg>
+            </div>
+
+            <span class="inline-block px-3 py-1 rounded-full text-[11px] font-semibold bg-beige-200 text-beige-800 tracking-wider uppercase mb-2">
+              Langkah Awal
+            </span>
+            <h4 class="font-serif text-lg font-bold text-beige-900 mb-2">
+              Awal Cerita Perkenalan Sama Orang Tua
+            </h4>
+            <p class="text-sm text-beige-800 leading-relaxed font-sans">
+              Kisah kami diawali dengan niat tulus dan keberanian untuk bersilaturahmi serta meminta restu kepada kedua orang tua. Tanpa kebetulan, setiap perbincangan hangat menjadi pijakan kokoh bagi langkah kami menuju masa depan yang penuh berkah.
+            </p>
+          </div>
+        </div>
+
+        <!-- Bagian 2: Lamaran (29 Maret 2026) -->
+        <div class="relative group" data-aos="fade-up" data-aos-duration="900" data-aos-delay="100">
+          <!-- Timeline Bullet Node -->
+          <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-beige-100 border-2 border-earth-gold flex items-center justify-center shadow-sm">
+            <i class="fa-solid fa-ring text-earth-gold text-xs"></i>
+          </div>
+
+          <div class="glass-card slide-card rounded-2xl p-5 sm:p-6 border border-beige-300 shadow-sm relative overflow-hidden">
+            <!-- Corner Botanical Accents -->
+            <div class="absolute -top-3 -left-3 w-12 h-12 pointer-events-none corner-anim-tl opacity-55 z-10 select-none">
+              <svg viewBox="0 0 80 80" fill="none" class="w-full h-full">
+                <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+                <g class="leaf-sway-1">
+                  <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+                </g>
+                <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+              </svg>
+            </div>
+            <div class="absolute -bottom-3 -right-3 w-12 h-12 pointer-events-none corner-anim-br opacity-55 z-10 select-none">
+              <svg viewBox="0 0 80 80" fill="none" class="w-full h-full">
+                <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+                <g class="leaf-sway-2">
+                  <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+                </g>
+                <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+              </svg>
+            </div>
+
+            <div class="flex items-center justify-between gap-2 mb-2 flex-wrap">
+              <span class="inline-block px-3 py-1 rounded-full text-[11px] font-semibold bg-beige-200 text-beige-800 tracking-wider uppercase">
+                Ikatan Komitmen
+              </span>
+              <span class="font-cinzel text-xs font-bold text-earth-terracotta tracking-wider">
+                29 Maret 2026
+              </span>
+            </div>
+            <h4 class="font-serif text-lg font-bold text-beige-900 mb-2">
+              Hari Lamaran
+            </h4>
+            <p class="text-sm text-beige-800 leading-relaxed font-sans">
+              Di hadapan keluarga besar kedua belah pihak, sebuah cincin tersemat sebagai simbol kesungguhan niat kami untuk saling mendampingi, menyatukan dua keluarga dalam doa, cinta, dan restu.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bagian 3: Paragraf Penutup (Quote & Keputusan Pernikahan) -->
+      <div class="mt-8 glass-card slide-card rounded-3xl p-6 sm:p-8 border border-earth-gold/40 shadow-card relative overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
+        <!-- Card Corner Botanical Ornaments (All 4 Corners) -->
+        <div class="absolute -top-3 -left-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-tl opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-1">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-2">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -top-3 -right-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-tr opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-2">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-1">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -bottom-3 -left-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-bl opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-1">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-2">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -bottom-3 -right-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-br opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-2">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-1">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -right-4 -bottom-4 text-beige-300/40 text-7xl font-serif pointer-events-none">
+          ”
+        </div>
+        <div class="flex items-center gap-2 mb-3">
+          <i class="fa-solid fa-quote-left text-earth-gold text-lg animate-sway"></i>
+          <span class="font-cinzel text-xs uppercase tracking-widest text-earth-taupe font-bold">Janji Suci</span>
+        </div>
+        <p class="text-sm sm:text-base text-beige-900 leading-relaxed font-serif italic text-justify">
+          "Bukan karena bertemu lalu berjodoh, tapi karena berjodoh kami bisa bertemu. Kami memutuskan untuk mengikrarkan janji suci pernikahan pada 14 maret 2027. Perjalanan yang tidak mudah penuh badai dan pelangi, namun sebagaimana yang telah dikatakan oleh Ali bin Abi thalib : 'Apa yang menjadi takdirmu akan menemukan jalannya untuk menemukanmu'."
+        </p>
+        <div class="mt-4 pt-3 border-t border-beige-200 flex items-center justify-between">
+          <span class="font-script text-2xl text-earth-taupe">Wais & Lulu</span>
+          <span class="text-[11px] text-beige-600 font-sans tracking-wider">Menuju 14 Maret 2027</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION DIVIDER -->
+    <div class="flex items-center justify-center gap-3 my-4 px-8 opacity-70">
+      <span class="h-[1px] flex-1 bg-gradient-to-r from-transparent to-beige-400"></span>
+      <i class="fa-regular fa-calendar-check text-xs text-earth-gold animate-sway inline-block"></i>
+      <span class="h-[1px] flex-1 bg-gradient-to-l from-transparent to-beige-400"></span>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- 5. DETAIL ACARA & LOKASI -->
+    <!-- ======================================================== -->
+    <section id="section-acara" class="px-5 py-8">
+      <div class="text-center mb-8" data-aos="fade-up">
+        <p class="text-xs uppercase tracking-[0.3em] text-beige-700 font-semibold mb-2">Waktu & Tempat</p>
+        <h2 class="font-serif text-3xl sm:text-4xl text-beige-900 font-bold">Rangkaian Acara</h2>
+        <p class="text-xs text-beige-700 max-w-sm mx-auto mt-2 leading-relaxed">
+          Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.
+        </p>
+      </div>
+
+      <!-- COUNTDOWN WIDGET (COUNTING DOWN TO 14 MARET 2027 08:00 WIB) -->
+      <div class="glass-card slide-card rounded-3xl p-6 sm:p-7 border border-beige-300 shadow-card mb-8 text-center relative overflow-hidden" data-aos="zoom-in" data-aos-duration="1000">
+        <!-- Card Corner Botanical Ornaments (All 4 Corners) -->
+        <div class="absolute -top-3 -left-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-tl opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-1">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-2">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -top-3 -right-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-tr opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-2">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-1">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -bottom-3 -left-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-bl opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-1">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-2">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -bottom-3 -right-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-br opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-2">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-1">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <p class="text-xs uppercase tracking-[0.25em] text-beige-700 font-semibold mb-4">
+          Hitung Mundur Menuju Hari Bahagia
+        </p>
+        
+        <div class="grid grid-cols-4 gap-2 sm:gap-3 max-w-sm mx-auto">
+          <!-- Days -->
+          <div class="p-3 sm:p-4 rounded-2xl bg-white/80 border border-beige-300 shadow-sm">
+            <span id="countdown-days" class="block font-serif text-2xl sm:text-3xl font-bold text-beige-900">00</span>
+            <span class="text-[10px] sm:text-xs uppercase tracking-wider text-beige-600 font-semibold">Hari</span>
+          </div>
+          <!-- Hours -->
+          <div class="p-3 sm:p-4 rounded-2xl bg-white/80 border border-beige-300 shadow-sm">
+            <span id="countdown-hours" class="block font-serif text-2xl sm:text-3xl font-bold text-beige-900">00</span>
+            <span class="text-[10px] sm:text-xs uppercase tracking-wider text-beige-600 font-semibold">Jam</span>
+          </div>
+          <!-- Minutes -->
+          <div class="p-3 sm:p-4 rounded-2xl bg-white/80 border border-beige-300 shadow-sm">
+            <span id="countdown-minutes" class="block font-serif text-2xl sm:text-3xl font-bold text-beige-900">00</span>
+            <span class="text-[10px] sm:text-xs uppercase tracking-wider text-beige-600 font-semibold">Menit</span>
+          </div>
+          <!-- Seconds -->
+          <div class="p-3 sm:p-4 rounded-2xl bg-white/80 border border-beige-300 shadow-sm">
+            <span id="countdown-seconds" class="block font-serif text-2xl sm:text-3xl font-bold text-earth-terracotta">00</span>
+            <span class="text-[10px] sm:text-xs uppercase tracking-wider text-beige-600 font-semibold">Detik</span>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+Wais+%26+Lulu&dates=20270314T010000Z/20270314T090000Z&details=Pernikahan+Wais+Alqori+%26+Lulu+Deviyanti&location=Ds+Kedungjaran+Dusun+3+RT.10+RW.05+Kec+Sragi+Kab+Pekalongan" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="inline-flex items-center gap-2 text-xs font-semibold text-earth-taupe hover:text-earth-gold transition-colors py-1 px-3 rounded-full hover:bg-beige-200">
+            <i class="fa-regular fa-bell text-xs animate-sway"></i>
+            <span>Simpan ke Google Calendar</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- ACARA 1: MALAM TAMU -->
+      <div class="glass-card slide-card rounded-3xl p-6 sm:p-7 border border-beige-300 shadow-card mb-6 text-center relative overflow-hidden" data-aos="fade-up" data-aos-duration="900">
+        <!-- Card Corner Botanical Ornaments (All 4 Corners) -->
+        <div class="absolute -top-3 -left-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-tl opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-1">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-2">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -top-3 -right-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-tr opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-2">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-1">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -bottom-3 -left-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-bl opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-1">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-2">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -bottom-3 -right-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-br opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-2">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-1">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="w-12 h-12 rounded-full bg-beige-200 border border-beige-300 flex items-center justify-center mx-auto mb-4 text-earth-gold shadow-sm animate-breeze">
+          <i class="fa-solid fa-moon text-lg"></i>
+        </div>
+        <h3 class="font-serif text-2xl font-bold text-beige-900 mb-1">Malam Tamu</h3>
+        <p class="text-xs uppercase tracking-widest text-beige-600 font-medium mb-4">Syukuran & Silaturahmi</p>
+        
+        <div class="space-y-2 py-3 border-y border-beige-200/80 mb-4 max-w-xs mx-auto">
+          <div class="flex items-center justify-center gap-2 text-sm text-beige-800">
+            <i class="fa-regular fa-calendar text-earth-gold text-xs"></i>
+            <span class="font-semibold">Sabtu, 13 Maret 2027</span>
+          </div>
+          <div class="flex items-center justify-center gap-2 text-sm text-beige-800">
+            <i class="fa-regular fa-clock text-earth-gold text-xs"></i>
+            <span class="font-semibold">Pukul 19.00 WIB - Selesai</span>
+          </div>
+        </div>
+
+        <p class="text-xs text-beige-700">Bertempat di Kediaman Mempelai</p>
+      </div>
+
+      <!-- ACARA 2: AKAD NIKAH -->
+      <div class="glass-card slide-card rounded-3xl p-6 sm:p-7 border border-earth-gold/50 shadow-card mb-6 text-center relative overflow-hidden" data-aos="fade-up" data-aos-duration="900" data-aos-delay="100">
+        <!-- Card Corner Botanical Ornaments (All 4 Corners) -->
+        <div class="absolute -top-3 -left-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-tl opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-1">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-2">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -top-3 -right-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-tr opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-2">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-1">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -bottom-3 -left-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-bl opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-1">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-2">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -bottom-3 -right-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-br opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-2">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-1">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="w-12 h-12 rounded-full bg-earth-gold/20 border border-earth-gold flex items-center justify-center mx-auto mb-4 text-earth-gold shadow-sm animate-breeze">
+          <i class="fa-solid fa-handshake text-lg"></i>
+        </div>
+        <h3 class="font-serif text-2xl font-bold text-beige-900 mb-1">Akad Nikah</h3>
+        <p class="text-xs uppercase tracking-widest text-earth-gold font-bold mb-4">Prosesi Ijab Qabul</p>
+        
+        <div class="space-y-2 py-3 border-y border-beige-200/80 mb-4 max-w-xs mx-auto">
+          <div class="flex items-center justify-center gap-2 text-sm text-beige-800">
+            <i class="fa-regular fa-calendar text-earth-gold text-xs"></i>
+            <span class="font-semibold">Minggu, 14 Maret 2027</span>
+          </div>
+          <div class="flex items-center justify-center gap-2 text-sm text-beige-800">
+            <i class="fa-regular fa-clock text-earth-gold text-xs"></i>
+            <span class="font-semibold">Pukul 08.00 WIB</span>
+          </div>
+        </div>
+
+        <p class="text-xs text-beige-700">Bertempat di Kediaman Mempelai</p>
+      </div>
+
+      <!-- ACARA 3: RESEPSI -->
+      <div class="glass-card slide-card rounded-3xl p-6 sm:p-7 border border-beige-300 shadow-card mb-8 text-center relative overflow-hidden" data-aos="fade-up" data-aos-duration="900" data-aos-delay="150">
+        <!-- Card Corner Botanical Ornaments (All 4 Corners) -->
+        <div class="absolute -top-3 -left-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-tl opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-1">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-2">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -top-3 -right-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-tr opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-2">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-1">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -bottom-3 -left-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-bl opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-1">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-2">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -bottom-3 -right-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-br opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-2">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-1">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="w-12 h-12 rounded-full bg-beige-200 border border-beige-300 flex items-center justify-center mx-auto mb-4 text-earth-gold shadow-sm animate-breeze">
+          <i class="fa-solid fa-champagne-glasses text-lg"></i>
+        </div>
+        <h3 class="font-serif text-2xl font-bold text-beige-900 mb-1">Resepsi Pernikahan</h3>
+        <p class="text-xs uppercase tracking-widest text-beige-600 font-medium mb-4">Perayaan & Doa Restu</p>
+        
+        <div class="space-y-2 py-3 border-y border-beige-200/80 mb-4 max-w-xs mx-auto">
+          <div class="flex items-center justify-center gap-2 text-sm text-beige-800">
+            <i class="fa-regular fa-calendar text-earth-gold text-xs"></i>
+            <span class="font-semibold">Minggu, 14 Maret 2027</span>
+          </div>
+          <div class="flex items-center justify-center gap-2 text-sm text-beige-800">
+            <i class="fa-regular fa-clock text-earth-gold text-xs"></i>
+            <span class="font-semibold">Pukul 11.00 WIB - Selesai</span>
+          </div>
+        </div>
+
+        <p class="text-xs text-beige-700">Bertempat di Lokasi Acara</p>
+      </div>
+
+      <!-- ALAMAT & GOOGLE MAPS -->
+      <div class="glass-card slide-card rounded-3xl p-6 sm:p-8 border border-beige-300 shadow-card text-center relative overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
+        <!-- Card Corner Botanical Ornaments (All 4 Corners) -->
+        <div class="absolute -top-3 -left-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-tl opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-1">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-2">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -top-3 -right-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-tr opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-2">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-1">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -bottom-3 -left-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-bl opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-1">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-2">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -bottom-3 -right-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-br opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-2">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-1">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="w-10 h-10 rounded-full bg-earth-terracotta/10 border border-earth-terracotta/30 flex items-center justify-center mx-auto mb-3 text-earth-terracotta animate-breeze">
+          <i class="fa-solid fa-location-dot text-base"></i>
+        </div>
+        <h4 class="font-serif text-lg font-bold text-beige-900 mb-2">Lokasi Acara</h4>
+        <p class="text-sm text-beige-800 leading-relaxed max-w-sm mx-auto mb-5 font-sans">
+          Ds Kedungjaran Dusun 3, RT.10 RW.05, Kec Sragi, Kab Pekalongan, Jawa Tengah ID 51155
+        </p>
+
+        <!-- Interactive Google Map Frame with direct link -->
+        <div class="relative w-full rounded-2xl overflow-hidden border border-beige-300 shadow-md mb-6 group bg-beige-100">
+          <!-- Google Maps Iframe -->
+          <iframe 
+            src="https://maps.google.com/maps?q=Kedungjaran%20Sragi%20Pekalongan&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+            class="w-full h-64 sm:h-72 border-0 filter contrast-[1.02]"
+            loading="lazy" 
+            allowfullscreen="" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Peta Lokasi Pernikahan Wais & Lulu">
+          </iframe>
+
+          <!-- Direct Floating Overlay Bar to Google Maps -->
+          <a href="https://maps.app.goo.gl/GUDUbDfR1FaAwNc47" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="absolute inset-x-3 bottom-3 py-2.5 px-4 rounded-xl glass-card-dark text-beige-100 flex items-center justify-between shadow-floating border border-earth-gold/40 hover:bg-neutral-900 transition-all duration-300 group-hover:border-earth-gold"
+             title="Buka Langsung di Aplikasi Google Maps">
+            <div class="flex items-center gap-2 text-left">
+              <i class="fa-solid fa-diamond-turn-right text-earth-gold text-sm animate-pulse"></i>
+              <div>
+                <p class="text-[11px] font-bold text-beige-100 leading-tight">Kedungjaran, Sragi, Pekalongan</p>
+                <p class="text-[10px] text-beige-400">Klik untuk rute Google Maps</p>
+              </div>
+            </div>
+            <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-earth-gold bg-earth-gold/15 px-2.5 py-1 rounded-full border border-earth-gold/30">
+              Rute <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+            </span>
+          </a>
+        </div>
+
+        <!-- Tombol Aksi Google Maps -->
+        <a href="https://maps.app.goo.gl/GUDUbDfR1FaAwNc47" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-beige-900 text-beige-100 font-semibold text-xs tracking-wider uppercase shadow-md hover:bg-earth-dark hover:shadow-lg transition-all duration-300 active:scale-95 border border-earth-gold/40 hover:scale-[1.02]">
+          <i class="fa-solid fa-map-location-dot text-earth-gold text-sm"></i>
+          <span>Buka di Google Maps</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-75"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- SECTION DIVIDER -->
+    <div class="flex items-center justify-center gap-3 my-4 px-8 opacity-70">
+      <span class="h-[1px] flex-1 bg-gradient-to-r from-transparent to-beige-400"></span>
+      <i class="fa-regular fa-images text-xs text-beige-600 animate-sway inline-block"></i>
+      <span class="h-[1px] flex-1 bg-gradient-to-l from-transparent to-beige-400"></span>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- 6. GALERI (PLACEHOLDER KOTAK KOSONG DENGAN KETERANGAN) -->
+    <!-- ======================================================== -->
+    <section id="section-galeri" class="px-5 py-8">
+      <div class="text-center mb-8" data-aos="fade-up">
+        <p class="text-xs uppercase tracking-[0.3em] text-beige-700 font-semibold mb-2">Momen Kenangan</p>
+        <h2 class="font-serif text-3xl sm:text-4xl text-beige-900 font-bold">Galeri Foto</h2>
+        <p class="text-xs text-beige-700 max-w-sm mx-auto mt-2 leading-relaxed">
+          Potret kebersamaan dan momen indah yang akan kami abadikan.
+        </p>
+      </div>
+
+      <!-- Aesthetic Gallery Grid in Slide Card -->
+      <div class="glass-card slide-card rounded-3xl p-5 sm:p-7 border border-beige-300 shadow-card relative overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
+        <!-- Card Corner Botanical Ornaments (All 4 Corners) -->
+        <div class="absolute -top-3 -left-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-tl opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-1">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-2">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -top-3 -right-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-tr opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-2">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-1">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -bottom-3 -left-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-bl opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-1">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-2">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="absolute -bottom-3 -right-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-br opacity-65 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-2">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <g class="leaf-sway-1">
+              <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+            <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+            <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+          </svg>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3 sm:gap-4 relative z-10">
+          <!-- Large Item 1 -->
+          <div class="col-span-2 h-56 sm:h-64 rounded-2xl bg-white/70 border border-dashed border-beige-400 p-4 flex flex-col items-center justify-center text-center transition-all duration-300 hover:border-earth-gold hover:shadow-card hover:-translate-y-1 group">
+            <div class="w-12 h-12 rounded-full bg-white/90 border border-beige-300 flex items-center justify-center mb-2.5 text-beige-500 group-hover:text-earth-gold group-hover:scale-110 transition-all shadow-sm">
+              <i class="fa-regular fa-image text-lg animate-sway"></i>
+            </div>
+            <span class="font-serif text-sm font-semibold text-beige-800 tracking-wide">
+              Foto Menyusul di Sini
+            </span>
+            <span class="text-[11px] text-beige-600 mt-1">Potret Bahagia 01</span>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="h-44 sm:h-52 rounded-2xl bg-white/70 border border-dashed border-beige-400 p-3 flex flex-col items-center justify-center text-center transition-all duration-300 hover:border-earth-gold hover:shadow-card hover:-translate-y-1 group">
+            <div class="w-10 h-10 rounded-full bg-white/90 border border-beige-300 flex items-center justify-center mb-2 text-beige-500 group-hover:text-earth-gold group-hover:scale-110 transition-all shadow-sm">
+              <i class="fa-solid fa-camera-retro text-sm animate-breeze"></i>
+            </div>
+            <span class="font-serif text-xs sm:text-sm font-semibold text-beige-800 tracking-wide">
+              Foto Menyusul di Sini
+            </span>
+            <span class="text-[10px] text-beige-600 mt-0.5">Potret Bahagia 02</span>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="h-44 sm:h-52 rounded-2xl bg-white/70 border border-dashed border-beige-400 p-3 flex flex-col items-center justify-center text-center transition-all duration-300 hover:border-earth-gold hover:shadow-card hover:-translate-y-1 group">
+            <div class="w-10 h-10 rounded-full bg-white/90 border border-beige-300 flex items-center justify-center mb-2 text-beige-500 group-hover:text-earth-gold group-hover:scale-110 transition-all shadow-sm">
+              <i class="fa-solid fa-heart text-sm text-earth-terracotta animate-pulse-slow"></i>
+            </div>
+            <span class="font-serif text-xs sm:text-sm font-semibold text-beige-800 tracking-wide">
+              Foto Menyusul di Sini
+            </span>
+            <span class="text-[10px] text-beige-600 mt-0.5">Potret Bahagia 03</span>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="h-44 sm:h-52 rounded-2xl bg-white/70 border border-dashed border-beige-400 p-3 flex flex-col items-center justify-center text-center transition-all duration-300 hover:border-earth-gold hover:shadow-card hover:-translate-y-1 group">
+            <div class="w-10 h-10 rounded-full bg-white/90 border border-beige-300 flex items-center justify-center mb-2 text-beige-500 group-hover:text-earth-gold group-hover:scale-110 transition-all shadow-sm">
+              <i class="fa-solid fa-gem text-sm animate-breeze"></i>
+            </div>
+            <span class="font-serif text-xs sm:text-sm font-semibold text-beige-800 tracking-wide">
+              Foto Menyusul di Sini
+            </span>
+            <span class="text-[10px] text-beige-600 mt-0.5">Potret Bahagia 04</span>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="h-44 sm:h-52 rounded-2xl bg-white/70 border border-beige-400 p-3 flex flex-col items-center justify-center text-center transition-all duration-300 hover:border-earth-gold hover:shadow-card hover:-translate-y-1 group">
+            <div class="w-10 h-10 rounded-full bg-white/90 border border-beige-300 flex items-center justify-center mb-2 text-beige-500 group-hover:text-earth-gold group-hover:scale-110 transition-all shadow-sm">
+              <i class="fa-regular fa-star text-sm animate-sway"></i>
+            </div>
+            <span class="font-serif text-xs sm:text-sm font-semibold text-beige-800 tracking-wide">
+              Foto Menyusul di Sini
+            </span>
+            <span class="text-[10px] text-beige-600 mt-0.5">Potret Bahagia 05</span>
+          </div>
+
+          <!-- Item 6 (Wide bottom) -->
+          <div class="col-span-2 h-44 sm:h-52 rounded-2xl bg-white/70 border border-dashed border-beige-400 p-4 flex flex-col items-center justify-center text-center transition-all duration-300 hover:border-earth-gold hover:shadow-card hover:-translate-y-1 group">
+            <div class="w-10 h-10 rounded-full bg-white/90 border border-beige-300 flex items-center justify-center mb-2 text-beige-500 group-hover:text-earth-gold group-hover:scale-110 transition-all shadow-sm">
+              <i class="fa-solid fa-feather-pointed text-sm animate-breeze"></i>
+            </div>
+            <span class="font-serif text-sm font-semibold text-beige-800 tracking-wide">
+              Foto Menyusul di Sini
+            </span>
+            <span class="text-[10px] text-beige-600 mt-0.5">Potret Bahagia 06</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION DIVIDER -->
+    <div class="flex items-center justify-center gap-3 my-4 px-8 opacity-70">
+      <span class="h-[1px] flex-1 bg-gradient-to-r from-transparent to-beige-400"></span>
+      <i class="fa-solid fa-gift text-xs text-earth-gold animate-sway"></i>
+      <span class="h-[1px] flex-1 bg-gradient-to-l from-transparent to-beige-400"></span>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- 7. AMPLOP DIGITAL (WEDDING GIFT) -->
+    <!-- ======================================================== -->
+    <section id="section-amplop" class="px-5 py-8">
+      <div class="text-center mb-8" data-aos="fade-up">
+        <p class="text-xs uppercase tracking-[0.3em] text-beige-700 font-semibold mb-2">Tanda Kasih</p>
+        <h2 class="font-serif text-3xl sm:text-4xl text-beige-900 font-bold">Wedding Gift</h2>
+        <p class="text-xs text-beige-700 max-w-sm mx-auto mt-2 leading-relaxed">
+          Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Dan jika memberi adalah ungkapan tanda kasih, Anda dapat memberi kado secara cashless melalui:
+        </p>
+      </div>
+
+      <!-- KARTU WEDDING GIFT DALAM BOKS MEMBULAT BERGAYA MODERN -->
+      <div class="max-w-md mx-auto" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="relative rounded-3xl p-6 sm:p-7 bg-white slide-card shadow-floating border border-beige-300 overflow-hidden">
+          <!-- Card Corner Botanical Ornaments (All 4 Corners) -->
+          <div class="absolute -top-3 -left-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-tl opacity-65 z-10 select-none">
+            <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+              <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+              <g class="leaf-sway-1">
+                <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+              </g>
+              <g class="leaf-sway-2">
+                <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+              </g>
+              <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+              <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+              <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+            </svg>
+          </div>
+
+          <div class="absolute -top-3 -right-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-tr opacity-65 z-10 select-none">
+            <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+              <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+              <g class="leaf-sway-2">
+                <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+              </g>
+              <g class="leaf-sway-1">
+                <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+              </g>
+              <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+              <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+              <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+            </svg>
+          </div>
+
+          <div class="absolute -bottom-3 -left-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-bl opacity-65 z-10 select-none">
+            <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+              <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+              <g class="leaf-sway-1">
+                <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+              </g>
+              <g class="leaf-sway-2">
+                <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+              </g>
+              <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+              <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+              <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+            </svg>
+          </div>
+
+          <div class="absolute -bottom-3 -right-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-br opacity-65 z-10 select-none">
+            <svg viewBox="0 0 80 80" fill="none" class="w-full h-full drop-shadow-sm">
+              <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+              <g class="leaf-sway-2">
+                <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+              </g>
+              <g class="leaf-sway-1">
+                <path d="M44 20 C32 15 25 22 28 29 C35 26 40 25 44 20 Z" fill="#B49371" opacity="0.85"/>
+              </g>
+              <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+              <circle cx="48" cy="11" r="1.5" fill="#B86F52"/>
+              <circle cx="11" cy="48" r="1.5" fill="#B86F52"/>
+            </svg>
+          </div>
+          
+          <!-- Subtle Card Watermark / Top Deco -->
+          <div class="flex items-center justify-between pb-4 border-b border-beige-200">
+            <div class="flex items-center gap-2">
+              <!-- BNI Badge / Typography -->
+              <div class="flex items-center gap-1.5">
+                <span class="font-black text-xl sm:text-2xl tracking-tighter text-[#005E6A]">BNI</span>
+                <span class="text-[10px] font-bold text-earth-taupe px-1.5 py-0.5 rounded bg-beige-200">BANK</span>
+              </div>
+            </div>
+            
+            <!-- Modern Debit Chip Simulation -->
+            <div class="w-10 h-7 rounded-md bg-gradient-to-br from-amber-200 via-yellow-400 to-amber-600 p-1 flex items-center justify-center shadow-inner opacity-90 animate-pulse-slow">
+              <div class="w-full h-full border border-amber-700/40 rounded flex flex-col justify-between p-0.5">
+                <span class="h-[1px] w-full bg-amber-800/30"></span>
+                <span class="h-[1px] w-full bg-amber-800/30"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Account Number Section -->
+          <div class="py-5 text-center">
+            <p class="text-xs text-beige-600 uppercase tracking-widest font-medium mb-1">
+              Nomor Rekening
+            </p>
+            <div class="flex items-center justify-center gap-2">
+              <span id="rekening-number" class="font-mono text-2xl sm:text-3xl font-extrabold tracking-wider text-beige-900">
+                2025805561
+              </span>
+            </div>
+            <p class="text-sm font-semibold text-earth-taupe mt-1">
+              a.n. <span class="text-beige-900 font-bold">Lulu Deviyanti</span>
+            </p>
+          </div>
+
+          <!-- DUA TOMBOL AKSI HITAM MENYAMPING DI DALAM KARTU REKENING -->
+          <div class="grid grid-cols-2 gap-3 pt-2">
+            <!-- 1. Tombol Salin No Berikon Dokumen -->
+            <button id="btn-copy-rek" 
+                    type="button"
+                    class="flex items-center justify-center gap-2 px-3 py-3 rounded-xl bg-black text-white font-semibold text-xs tracking-wide hover:bg-neutral-800 active:scale-95 transition-all duration-200 shadow-md">
+              <i class="fa-regular fa-copy text-sm text-earth-gold animate-sway"></i>
+              <span id="copy-btn-text">Salin No</span>
+            </button>
+
+            <!-- 2. Tombol Konfirmasi WhatsApp Berikon Chat -->
+            <a href="https://wa.me/6285601100548?text=Halo%20Wais%20%26%20Lulu%2C%20saya%20sudah%20mengirimkan%20tanda%20kasih%20%2F%20kado%20pernikahan.%20Semoga%20menjadi%20keluarga%20yang%20sakinah%2C%20mawaddah%2C%20warahmah." 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="flex items-center justify-center gap-2 px-3 py-3 rounded-xl bg-black text-white font-semibold text-xs tracking-wide hover:bg-neutral-800 active:scale-95 transition-all duration-200 shadow-md text-center">
+              <i class="fa-brands fa-whatsapp text-sm text-green-400"></i>
+              <span>Konfirmasi WhatsApp</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION DIVIDER -->
+    <div class="flex items-center justify-center gap-3 my-4 px-8 opacity-70">
+      <span class="h-[1px] flex-1 bg-gradient-to-r from-transparent to-beige-400"></span>
+      <i class="fa-regular fa-comment-dots text-xs text-earth-gold animate-sway inline-block"></i>
+      <span class="h-[1px] flex-1 bg-gradient-to-l from-transparent to-beige-400"></span>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- 8. RSVP & BUKU TAMU -->
+    <!-- ======================================================== -->
+    <section id="section-rsvp" class="px-5 py-8">
+      <div class="text-center mb-8" data-aos="fade-up">
+        <p class="text-xs uppercase tracking-[0.3em] text-beige-700 font-semibold mb-2">Konfirmasi & Harapan</p>
+        <h2 class="font-serif text-3xl sm:text-4xl text-beige-900 font-bold">RSVP & Buku Tamu</h2>
+        <p class="text-xs text-beige-700 max-w-sm mx-auto mt-2 leading-relaxed">
+          Mohon konfirmasi kehadiran serta berikan doa restu bagi kedua mempelai.
+        </p>
+      </div>
+
+      <!-- Form RSVP Card -->
+      <div class="glass-card slide-card rounded-3xl p-6 sm:p-8 border border-beige-300 shadow-card mb-8 relative overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
+        <!-- Card Corner Botanical Ornament (Top-Left) -->
+        <div class="absolute -top-3 -left-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-tl opacity-60 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-1">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+          </svg>
+        </div>
+        <!-- Card Corner Botanical Ornament (Top-Right) -->
+        <div class="absolute -top-3 -right-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-tr opacity-60 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-2">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+          </svg>
+        </div>
+        <!-- Card Corner Botanical Ornament (Bottom-Left) -->
+        <div class="absolute -bottom-3 -left-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-bl opacity-60 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-1">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+          </svg>
+        </div>
+        <!-- Card Corner Botanical Ornament (Bottom-Right) -->
+        <div class="absolute -bottom-3 -right-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-br opacity-60 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-2">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+          </svg>
+        </div>
+
+        <form id="rsvp-form" class="space-y-4">
+          
+          <!-- Input Nama -->
+          <div>
+            <label for="rsvp-name" class="block text-xs font-semibold text-beige-800 uppercase tracking-wider mb-1.5">
+              Nama Lengkap <span class="text-earth-terracotta">*</span>
+            </label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-beige-500">
+                <i class="fa-regular fa-user text-xs"></i>
+              </span>
+              <input type="text" 
+                     id="rsvp-name" 
+                     required 
+                     placeholder="Tuliskan nama Anda..." 
+                     class="w-full pl-9 pr-4 py-3 rounded-xl bg-white/90 border border-beige-300 text-sm text-beige-900 placeholder:text-beige-400 focus:outline-none focus:ring-2 focus:ring-earth-gold/50 focus:border-earth-gold transition-all">
+            </div>
+          </div>
+
+          <!-- Pilihan Kehadiran -->
+          <div>
+            <label for="rsvp-status" class="block text-xs font-semibold text-beige-800 uppercase tracking-wider mb-1.5">
+              Konfirmasi Kehadiran <span class="text-earth-terracotta">*</span>
+            </label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-beige-500">
+                <i class="fa-regular fa-circle-check text-xs"></i>
+              </span>
+              <select id="rsvp-status" 
+                      required 
+                      class="w-full pl-9 pr-4 py-3 rounded-xl bg-white/90 border border-beige-300 text-sm text-beige-900 focus:outline-none focus:ring-2 focus:ring-earth-gold/50 focus:border-earth-gold transition-all">
+                <option value="" disabled selected>Pilih Kehadiran</option>
+                <option value="Hadir">Ya, Saya Akan Hadir</option>
+                <option value="Tidak Hadir">Maaf, Tidak Bisa Hadir</option>
+                <option value="Masih Ragu">Masih Belum Pasti</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Jumlah Tamu -->
+          <div>
+            <label for="rsvp-count" class="block text-xs font-semibold text-beige-800 uppercase tracking-wider mb-1.5">
+              Jumlah Tamu
+            </label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-beige-500">
+                <i class="fa-solid fa-user-group text-xs"></i>
+              </span>
+              <select id="rsvp-count" 
+                      class="w-full pl-9 pr-4 py-3 rounded-xl bg-white/90 border border-beige-300 text-sm text-beige-900 focus:outline-none focus:ring-2 focus:ring-earth-gold/50 focus:border-earth-gold transition-all">
+                <option value="1">1 Orang</option>
+                <option value="2">2 Orang</option>
+                <option value="3">3 Orang</option>
+                <option value="4+">Lebih dari 3 Orang</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Ucapan & Doa Restu -->
+          <div>
+            <label for="rsvp-message" class="block text-xs font-semibold text-beige-800 uppercase tracking-wider mb-1.5">
+              Ucapan & Doa Restu <span class="text-earth-terracotta">*</span>
+            </label>
+            <textarea id="rsvp-message" 
+                      rows="3" 
+                      required 
+                      placeholder="Tuliskan ucapan dan doa terbaik Anda untuk kedua mempelai..." 
+                      class="w-full px-4 py-3 rounded-xl bg-white/90 border border-beige-300 text-sm text-beige-900 placeholder:text-beige-400 focus:outline-none focus:ring-2 focus:ring-earth-gold/50 focus:border-earth-gold transition-all resize-none"></textarea>
+          </div>
+
+          <!-- Tombol Submit -->
+          <button type="submit" 
+                  class="w-full py-3.5 px-6 rounded-xl bg-beige-900 text-beige-100 font-semibold text-xs tracking-wider uppercase shadow-md hover:bg-earth-dark active:scale-98 transition-all duration-200 border border-earth-gold/30 flex items-center justify-center gap-2">
+            <i class="fa-regular fa-paper-plane text-earth-gold animate-sway"></i>
+            <span>Kirim Konfirmasi & Doa Restu</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Feed Buku Tamu & Doa Restu -->
+      <div class="glass-card slide-card rounded-3xl p-6 sm:p-7 border border-beige-300 shadow-card relative overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
+        <!-- Card Corner Botanical Ornament (Top-Left) -->
+        <div class="absolute -top-3 -left-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-tl opacity-60 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-1">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+          </svg>
+        </div>
+        <!-- Card Corner Botanical Ornament (Top-Right) -->
+        <div class="absolute -top-3 -right-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-tr opacity-60 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-2">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+          </svg>
+        </div>
+        <!-- Card Corner Botanical Ornament (Bottom-Left) -->
+        <div class="absolute -bottom-3 -left-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-bl opacity-60 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-1">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+          </svg>
+        </div>
+        <!-- Card Corner Botanical Ornament (Bottom-Right) -->
+        <div class="absolute -bottom-3 -right-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-br opacity-60 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-2">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+          </svg>
+        </div>
+
+        <div class="flex items-center justify-between pb-3 border-b border-beige-200 mb-4">
+          <div class="flex items-center gap-2">
+            <i class="fa-regular fa-comments text-earth-gold animate-sway"></i>
+            <h4 class="font-serif text-lg font-bold text-beige-900">Doa & Ucapan</h4>
+          </div>
+          <span id="wishes-count" class="text-xs px-2.5 py-0.5 rounded-full bg-beige-200 text-beige-800 font-bold">
+            3 Ucapan
+          </span>
+        </div>
+
+        <!-- Container Daftar Ucapan -->
+        <div id="wishes-list" class="space-y-3.5 max-h-96 overflow-y-auto pr-1">
+          <!-- Item Ucapan diisi oleh Javascript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER PENUTUP (SLIDE PENUTUP) -->
+    <footer class="px-5 pt-10 pb-16 text-beige-700" data-aos="fade-up" data-aos-duration="1000">
+      <div class="glass-card slide-card rounded-3xl p-8 sm:p-10 text-center shadow-card border border-beige-300 relative overflow-hidden max-w-lg mx-auto">
+        <!-- Card Corner Botanical Ornament (Top-Left) -->
+        <div class="absolute -top-3 -left-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-tl opacity-60 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-1">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+          </svg>
+        </div>
+        <!-- Card Corner Botanical Ornament (Top-Right) -->
+        <div class="absolute -top-3 -right-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-tr opacity-60 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-2">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+          </svg>
+        </div>
+        <!-- Card Corner Botanical Ornament (Bottom-Left) -->
+        <div class="absolute -bottom-3 -left-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-bl opacity-60 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-1">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+          </svg>
+        </div>
+        <!-- Card Corner Botanical Ornament (Bottom-Right) -->
+        <div class="absolute -bottom-3 -right-3 w-14 h-14 sm:w-16 sm:h-16 pointer-events-none corner-anim-br opacity-60 z-10 select-none">
+          <svg viewBox="0 0 80 80" fill="none" class="w-full h-full">
+            <path d="M4 76 C8 40 36 12 76 4" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4 58 C12 32 32 12 58 4" stroke="#DEC9B1" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <g class="leaf-sway-2">
+              <path d="M20 44 C15 32 22 25 29 28 C26 35 25 40 20 44 Z" fill="#CDB293" opacity="0.85"/>
+            </g>
+            <circle cx="18" cy="18" r="2.5" fill="#C5A059"/>
+          </svg>
+        </div>
+
+        <!-- Centered Swaying Pampas & Floral Crest -->
+        <div class="w-full flex justify-center mb-4 edge-anim-bottom">
+          <svg class="w-36 h-12 text-earth-gold" viewBox="0 0 160 50" fill="none">
+            <path d="M80 35 C65 20, 30 15, 10 22 M80 35 C95 20, 130 15, 150 22" stroke="#C5A059" stroke-width="1.6" stroke-linecap="round"/>
+            <g class="leaf-sway-1">
+              <path d="M60 22 C55 12, 42 10, 32 15 C42 19, 50 19, 60 22 Z" fill="#DEC9B1"/>
+            </g>
+            <g class="leaf-sway-2">
+              <path d="M100 22 C105 12, 118 10, 128 15 C118 19, 110 19, 100 22 Z" fill="#DEC9B1"/>
+            </g>
+            <circle cx="80" cy="35" r="3.5" fill="#C5A059"/>
+            <circle cx="80" cy="35" r="1.5" fill="#FAF6F0"/>
+          </svg>
+        </div>
+        <div class="w-16 h-[1px] bg-earth-gold/60 mx-auto mb-5"></div>
+        <p class="font-script text-4xl sm:text-5xl text-beige-900 mb-2">
+          Wais & Lulu
+        </p>
+        <p class="text-xs tracking-widest uppercase font-semibold text-earth-taupe">
+          14 Maret 2027 • Pekalongan
+        </p>
+        <p class="text-[11px] text-beige-600 mt-4 leading-relaxed">
+          Terima kasih atas doa dan kehadiran Bapak/Ibu/Saudara/i sekalian.
+        </p>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- ======================================================== -->
+  <!-- FLOATING BOTTOM NAVIGATION BAR -->
+  <!-- ======================================================== -->
+  <nav id="bottom-navbar" class="fixed bottom-3 inset-x-0 z-40 px-3 flex justify-center hidden transition-all duration-500">
+    <div class="glass-card-dark rounded-full px-3 py-2 shadow-floating border border-earth-gold/40 flex items-center gap-1 sm:gap-2 max-w-md w-full justify-around backdrop-blur-lg">
+      
+      <!-- Nav Item: Cover / Home -->
+      <a href="#section-home" class="nav-item flex flex-col items-center justify-center p-2 text-beige-300 hover:text-earth-gold transition-colors text-center group" aria-label="Beranda">
+        <i class="fa-solid fa-house text-sm group-hover:scale-110 transition-transform"></i>
+        <span class="text-[9px] mt-0.5 font-medium tracking-tight">Home</span>
+      </a>
+
+      <!-- Nav Item: Mempelai -->
+      <a href="#section-mempelai" class="nav-item flex flex-col items-center justify-center p-2 text-beige-300 hover:text-earth-gold transition-colors text-center group" aria-label="Mempelai">
+        <i class="fa-solid fa-heart text-sm group-hover:scale-110 transition-transform"></i>
+        <span class="text-[9px] mt-0.5 font-medium tracking-tight">Mempelai</span>
+      </a>
+
+      <!-- Nav Item: Kisah -->
+      <a href="#section-story" class="nav-item flex flex-col items-center justify-center p-2 text-beige-300 hover:text-earth-gold transition-colors text-center group" aria-label="Kisah">
+        <i class="fa-solid fa-book-open text-sm group-hover:scale-110 transition-transform"></i>
+        <span class="text-[9px] mt-0.5 font-medium tracking-tight">Kisah</span>
+      </a>
+
+      <!-- Nav Item: Acara -->
+      <a href="#section-acara" class="nav-item flex flex-col items-center justify-center p-2 text-beige-300 hover:text-earth-gold transition-colors text-center group" aria-label="Acara">
+        <i class="fa-solid fa-calendar-days text-sm group-hover:scale-110 transition-transform"></i>
+        <span class="text-[9px] mt-0.5 font-medium tracking-tight">Acara</span>
+      </a>
+
+      <!-- Nav Item: Galeri -->
+      <a href="#section-galeri" class="nav-item flex flex-col items-center justify-center p-2 text-beige-300 hover:text-earth-gold transition-colors text-center group" aria-label="Galeri">
+        <i class="fa-solid fa-images text-sm group-hover:scale-110 transition-transform"></i>
+        <span class="text-[9px] mt-0.5 font-medium tracking-tight">Galeri</span>
+      </a>
+
+      <!-- Nav Item: Kado / Amplop -->
+      <a href="#section-amplop" class="nav-item flex flex-col items-center justify-center p-2 text-beige-300 hover:text-earth-gold transition-colors text-center group" aria-label="Kado">
+        <i class="fa-solid fa-gift text-sm group-hover:scale-110 transition-transform"></i>
+        <span class="text-[9px] mt-0.5 font-medium tracking-tight">Kado</span>
+      </a>
+
+      <!-- Nav Item: RSVP -->
+      <a href="#section-rsvp" class="nav-item flex flex-col items-center justify-center p-2 text-beige-300 hover:text-earth-gold transition-colors text-center group" aria-label="RSVP">
+        <i class="fa-solid fa-clipboard-check text-sm group-hover:scale-110 transition-transform"></i>
+        <span class="text-[9px] mt-0.5 font-medium tracking-tight">RSVP</span>
+      </a>
+
+    </div>
+  </nav>
+
+  <!-- ======================================================== -->
+  <!-- TOAST NOTIFICATION -->
+  <!-- ======================================================== -->
+  <div id="toast" class="fixed top-6 left-1/2 -translate-x-1/2 z-50 transform -translate-y-20 opacity-0 pointer-events-none transition-all duration-300 ease-out flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-earth-dark text-white text-xs font-semibold shadow-floating border border-earth-gold/40">
+    <i id="toast-icon" class="fa-solid fa-circle-check text-earth-gold"></i>
+    <span id="toast-message">Nomor rekening berhasil disalin!</span>
+  </div>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Main JavaScript Logic -->
+  <script>
+    // 1. Initialize AOS (Animate On Scroll)
+    AOS.init({
+      once: false,
+      duration: 800,
+      offset: 60,
+      easing: 'ease-out-cubic'
+    });
+
+    // 2. Parse URL parameter '?to=' for dynamic guest name
+    function initGuestName() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const guestParam = urlParams.get('to') || urlParams.get('u') || urlParams.get('guest');
+      const guestElement = document.getElementById('guest-name');
+      const rsvpNameInput = document.getElementById('rsvp-name');
+      
+      if (guestParam && guestParam.trim() !== '') {
+        // Clean name, replace '+' with space and decode
+        const decodedName = decodeURIComponent(guestParam.replace(/\+/g, ' '));
+        guestElement.textContent = decodedName;
+        if (rsvpNameInput) {
+          rsvpNameInput.value = decodedName;
+        }
+      }
+    }
+
+    // 3. Audio & Cover Control
+    const coverModal = document.getElementById('cover-modal');
+    const btnOpen = document.getElementById('btn-open-invitation');
+    const audio = document.getElementById('wedding-audio');
+    const audioContainer = document.getElementById('audio-control-container');
+    const audioToggleBtn = document.getElementById('audio-toggle-btn');
+    const audioDisc = document.getElementById('audio-disc');
+    const audioIcon = document.getElementById('audio-icon');
+    const bottomNavbar = document.getElementById('bottom-navbar');
+    let isAudioPlaying = false;
+
+    function playAudio() {
+      audio.play().then(() => {
+        isAudioPlaying = true;
+        audioDisc.classList.remove('paused');
+        audioIcon.className = 'fa-solid fa-compact-disc text-earth-gold text-sm group-hover:rotate-45 transition-transform';
+      }).catch(err => {
+        console.log("Audio autoplay prevented by browser policy:", err);
+        isAudioPlaying = false;
+        audioDisc.classList.add('paused');
+      });
+    }
+
+    function pauseAudio() {
+      audio.pause();
+      isAudioPlaying = false;
+      audioDisc.classList.add('paused');
+      audioIcon.className = 'fa-solid fa-play text-earth-gold text-xs';
+    }
+
+    function toggleAudio() {
+      if (isAudioPlaying) {
+        pauseAudio();
+      } else {
+        playAudio();
+      }
+    }
+
+    // "Buka Undangan" Action
+    btnOpen.addEventListener('click', () => {
+      // 1. Play background music
+      playAudio();
+
+      // 2. Unlock body scroll
+      document.body.classList.remove('locked');
+
+      // 3. Smooth transition hide modal cover
+      coverModal.classList.add('opacity-0', 'pointer-events-none', '-translate-y-8');
+      setTimeout(() => {
+        coverModal.style.display = 'none';
+        AOS.refresh();
+      }, 900);
+
+      // 4. Reveal audio button & bottom navigation
+      audioContainer.classList.remove('hidden');
+      bottomNavbar.classList.remove('hidden');
+
+      // 5. Smooth scroll down to first content section
+      const firstSection = document.getElementById('section-home');
+      if (firstSection) {
+        firstSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+
+    audioToggleBtn.addEventListener('click', toggleAudio);
+
+    // 4. Countdown Timer to 14 Maret 2027 08:00 WIB (UTC+7)
+    // 2027-03-14T08:00:00+07:00
+    const targetDate = new Date('2027-03-14T08:00:00+07:00').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        document.getElementById('countdown-days').innerText = "00";
+        document.getElementById('countdown-hours').innerText = "00";
+        document.getElementById('countdown-minutes').innerText = "00";
+        document.getElementById('countdown-seconds').innerText = "00";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById('countdown-days').innerText = String(days).padStart(2, '0');
+      document.getElementById('countdown-hours').innerText = String(hours).padStart(2, '0');
+      document.getElementById('countdown-minutes').innerText = String(minutes).padStart(2, '0');
+      document.getElementById('countdown-seconds').innerText = String(seconds).padStart(2, '0');
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // 5. Toast Notification System
+    const toast = document.getElementById('toast');
+    const toastMessage = document.getElementById('toast-message');
+    const toastIcon = document.getElementById('toast-icon');
+    let toastTimeout;
+
+    function showToast(message, iconClass = 'fa-solid fa-circle-check text-earth-gold') {
+      clearTimeout(toastTimeout);
+      toastMessage.textContent = message;
+      toastIcon.className = iconClass;
+      toast.classList.remove('-translate-y-20', 'opacity-0', 'pointer-events-none');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('-translate-y-20', 'opacity-0', 'pointer-events-none');
+      }, 3000);
+    }
+
+    // 6. Copy Rekening to Clipboard with feedback
+    const btnCopyRek = document.getElementById('btn-copy-rek');
+    const copyBtnText = document.getElementById('copy-btn-text');
+    const rekeningNumber = document.getElementById('rekening-number').innerText.trim();
+
+    btnCopyRek.addEventListener('click', () => {
+      navigator.clipboard.writeText(rekeningNumber).then(() => {
+        copyBtnText.textContent = "Tersalin!";
+        btnCopyRek.classList.add('bg-neutral-800');
+        showToast("Nomor rekening BNI 2025805561 berhasil disalin!");
+        setTimeout(() => {
+          copyBtnText.textContent = "Salin No";
+          btnCopyRek.classList.remove('bg-neutral-800');
+        }, 2500);
+      }).catch(err => {
+        // Fallback for older browsers
+        const textarea = document.createElement('textarea');
+        textarea.value = rekeningNumber;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        showToast("Nomor rekening BNI berhasil disalin!");
+      });
+    });
+
+    // 7. RSVP & Guestbook Management (Interactive + LocalStorage)
+    const initialWishes = [
+      {
+        name: "H. Sudirman & Keluarga",
+        status: "Hadir",
+        message: "Barakallahu lakuma wa baraka 'alaikuma wa jama'a bainakuma fii khoir. Selamat menempuh hidup baru untuk Wais dan Lulu. Semoga sakinah mawaddah warahmah selamanya.",
+        time: "1 jam yang lalu"
+      },
+      {
+        name: "Rizky & Anisa",
+        status: "Hadir",
+        message: "Selamat ya Wais & Lulu! Akhirnya berlabuh di pelaminan. Semoga dilancarkan semua acaranya sampai hari H dan senantiasa diberkahi kebahagiaan.",
+        time: "3 jam yang lalu"
+      },
+      {
+        name: "Dimas Prasetyo",
+        status: "Hadir",
+        message: "Selamat brader Wais dan Lulu! Semoga menjadi keluarga yang kompak, saling menguatkan di setiap fase kehidupan.",
+        time: "Kemarin"
+      }
+    ];
+
+    const LOCAL_STORAGE_KEY = 'wedding_wishes_wais_lulu';
+
+    function getSavedWishes() {
+      const data = localStorage.getItem(LOCAL_STORAGE_KEY);
+      if (data) {
+        try {
+          return JSON.parse(data);
+        } catch (e) {
+          return initialWishes;
+        }
+      }
+      return initialWishes;
+    }
+
+    function saveWishes(wishes) {
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(wishes));
+    }
+
+    function renderWishes() {
+      const wishes = getSavedWishes();
+      const container = document.getElementById('wishes-list');
+      const countBadge = document.getElementById('wishes-count');
+      
+      countBadge.textContent = `${wishes.length} Ucapan`;
+      container.innerHTML = '';
+
+      wishes.forEach(wish => {
+        const item = document.createElement('div');
+        item.className = 'p-3.5 rounded-2xl bg-white/80 border border-beige-200/90 shadow-sm transition-all hover:bg-white';
+
+        const isHadir = wish.status === 'Hadir';
+        const badgeBg = isHadir ? 'bg-emerald-100 text-emerald-800 border-emerald-200' : 'bg-neutral-100 text-neutral-700 border-neutral-200';
+        const badgeIcon = isHadir ? 'fa-solid fa-check' : 'fa-solid fa-clock';
+
+        item.innerHTML = `
+          <div class="flex items-center justify-between gap-2 mb-1.5">
+            <div class="flex items-center gap-2">
+              <div class="w-7 h-7 rounded-full bg-beige-300 text-beige-900 font-bold text-xs flex items-center justify-center">
+                ${wish.name.charAt(0).toUpperCase()}
+              </div>
+              <span class="font-semibold text-xs sm:text-sm text-beige-900">${escapeHtml(wish.name)}</span>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded-full border font-semibold flex items-center gap-1 ${badgeBg}">
+              <i class="${badgeIcon} text-[8px]"></i>
+              <span>${wish.status}</span>
+            </span>
+          </div>
+          <p class="text-xs text-beige-800 leading-relaxed font-sans pl-9">
+            ${escapeHtml(wish.message)}
+          </p>
+          <div class="text-[9px] text-beige-500 pl-9 mt-1">
+            ${wish.time || 'Baru saja'}
+          </div>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    function escapeHtml(text) {
+      const map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+      };
+      return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+    }
+
+    const rsvpForm = document.getElementById('rsvp-form');
+    rsvpForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('rsvp-name').value.trim();
+      const status = document.getElementById('rsvp-status').value;
+      const count = document.getElementById('rsvp-count').value;
+      const message = document.getElementById('rsvp-message').value.trim();
+
+      if (!name || !status || !message) {
+        showToast("Mohon lengkapi semua kolom wajib!", "fa-solid fa-triangle-exclamation text-amber-400");
+        return;
+      }
+
+      const newWish = {
+        name: name,
+        status: status,
+        count: count,
+        message: message,
+        time: "Baru saja"
+      };
+
+      const wishes = getSavedWishes();
+      wishes.unshift(newWish);
+      saveWishes(wishes);
+      renderWishes();
+
+      // Reset form
+      document.getElementById('rsvp-message').value = '';
+      showToast("Terima kasih, konfirmasi & doa restu berhasil dikirim!");
+    });
+
+    // 8. Falling Petals / Pampas Float Particle Effect on Canvas
+    function initPetals() {
+      const canvas = document.getElementById('petals-canvas');
+      const ctx = canvas.getContext('2d');
+      let width = canvas.width = window.innerWidth;
+      let height = canvas.height = window.innerHeight;
+
+      window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+
+      const petals = [];
+      const petalCount = 18; // Subtle and elegant
+
+      const colors = ['rgba(222, 201, 177, 0.45)', 'rgba(197, 160, 89, 0.35)', 'rgba(235, 221, 203, 0.4)'];
+
+      for (let i = 0; i < petalCount; i++) {
+        petals.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          size: Math.random() * 5 + 3,
+          speedY: Math.random() * 0.8 + 0.4,
+          speedX: Math.random() * 0.5 - 0.25,
+          angle: Math.random() * 360,
+          spin: (Math.random() - 0.5) * 0.02,
+          color: colors[Math.floor(Math.random() * colors.length)]
+        });
+      }
+
+      function renderPetals() {
+        ctx.clearRect(0, 0, width, height);
+
+        petals.forEach(p => {
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.angle);
+          ctx.fillStyle = p.color;
+
+          // Draw soft oval petal / pampas plume seed
+          ctx.beginPath();
+          ctx.ellipse(0, 0, p.size * 1.5, p.size * 0.7, 0, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+
+          p.y += p.speedY;
+          p.x += Math.sin(p.y * 0.01) * 0.4 + p.speedX;
+          p.angle += p.spin;
+
+          if (p.y > height + 20) {
+            p.y = -10;
+            p.x = Math.random() * width;
+          }
+        });
+
+        requestAnimationFrame(renderPetals);
+      }
+      renderPetals();
+    }
+
+    // 9. Interactive Scrollspy for Floating Bottom Navigation Bar
+    function initScrollspy() {
+      const sections = [
+        'section-home',
+        'section-mempelai',
+        'section-story',
+        'section-acara',
+        'section-galeri',
+        'section-amplop',
+        'section-rsvp'
+      ];
+      const navLinks = document.querySelectorAll('#bottom-navbar .nav-item');
+
+      function updateActiveNav() {
+        const scrollPosition = window.scrollY + window.innerHeight * 0.35;
+        let currentSectionId = '';
+
+        for (const id of sections) {
+          const el = document.getElementById(id);
+          if (el) {
+            const top = el.offsetTop;
+            const height = el.offsetHeight;
+            if (scrollPosition >= top && scrollPosition < top + height) {
+              currentSectionId = id;
+              break;
+            }
+          }
+        }
+
+        // Default to home if near the top
+        if (!currentSectionId && window.scrollY < 400) {
+          currentSectionId = 'section-home';
+        }
+
+        navLinks.forEach(link => {
+          const target = link.getAttribute('href').replace('#', '');
+          if (target === currentSectionId) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', updateActiveNav, { passive: true });
+      updateActiveNav();
+    }
+
+    // Initialize on Load
+    document.addEventListener('DOMContentLoaded', () => {
+      initGuestName();
+      renderWishes();
+      initPetals();
+      initScrollspy();
+    });
+  </script>
+</body>
+</html>
