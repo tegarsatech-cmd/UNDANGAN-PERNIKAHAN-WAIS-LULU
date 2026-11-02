@@ -2332,7 +2332,7 @@
             <h4 class="font-serif text-lg font-bold text-beige-900">Doa & Ucapan</h4>
           </div>
           <span id="wishes-count" class="text-xs px-2.5 py-0.5 rounded-full bg-beige-200 text-beige-800 font-bold">
-            3 Ucapan
+            0 Ucapan
           </span>
         </div>
 
@@ -2650,39 +2650,22 @@
     });
 
     // 7. RSVP & Guestbook Management (Interactive + LocalStorage)
-    const initialWishes = [
-      {
-        name: "H. Sudirman & Keluarga",
-        status: "Hadir",
-        message: "Barakallahu lakuma wa baraka 'alaikuma wa jama'a bainakuma fii khoir. Selamat menempuh hidup baru untuk Wais dan Lulu. Semoga sakinah mawaddah warahmah selamanya.",
-        time: "1 jam yang lalu"
-      },
-      {
-        name: "Rizky & Anisa",
-        status: "Hadir",
-        message: "Selamat ya Wais & Lulu! Akhirnya berlabuh di pelaminan. Semoga dilancarkan semua acaranya sampai hari H dan senantiasa diberkahi kebahagiaan.",
-        time: "3 jam yang lalu"
-      },
-      {
-        name: "Dimas Prasetyo",
-        status: "Hadir",
-        message: "Selamat brader Wais dan Lulu! Semoga menjadi keluarga yang kompak, saling menguatkan di setiap fase kehidupan.",
-        time: "Kemarin"
-      }
-    ];
+    const initialWishes = [];
 
-    const LOCAL_STORAGE_KEY = 'wedding_wishes_wais_lulu';
+    const LOCAL_STORAGE_KEY = 'wedding_wishes_wais_lulu_v2';
 
     function getSavedWishes() {
+      // Clear legacy sample wishes if present
+      localStorage.removeItem('wedding_wishes_wais_lulu');
       const data = localStorage.getItem(LOCAL_STORAGE_KEY);
       if (data) {
         try {
           return JSON.parse(data);
         } catch (e) {
-          return initialWishes;
+          return [];
         }
       }
-      return initialWishes;
+      return [];
     }
 
     function saveWishes(wishes) {
@@ -2696,6 +2679,16 @@
       
       countBadge.textContent = `${wishes.length} Ucapan`;
       container.innerHTML = '';
+
+      if (wishes.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-8 px-4 text-beige-600 bg-white/40 rounded-2xl border border-dashed border-beige-300">
+            <i class="fa-regular fa-comment-dots text-2xl text-beige-400 mb-2 block animate-breeze"></i>
+            <p class="text-xs italic">Belum ada ucapan. Jadilah yang pertama memberikan doa restu untuk kedua mempelai!</p>
+          </div>
+        `;
+        return;
+      }
 
       wishes.forEach(wish => {
         const item = document.createElement('div');
