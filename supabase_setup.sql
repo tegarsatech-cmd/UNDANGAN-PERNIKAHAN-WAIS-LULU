@@ -157,4 +157,6 @@ begin
   end if;
 end $$;
 
+delete from public.wedding_wishes where created_at <= '2026-11-24T06:55:00Z';
+
 notify pgrst, 'reload schema';
