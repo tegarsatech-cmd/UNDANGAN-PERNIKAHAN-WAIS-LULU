@@ -2466,6 +2466,9 @@
   <!-- AOS JS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+  <!-- Supabase JS Client (Pinned v2.119.2) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.119.2/dist/umd/supabase.js"></script>
+
   <!-- Main JavaScript Logic -->
   <script>
     // 1. Initialize AOS (Animate On Scroll)
@@ -2633,76 +2636,40 @@
       });
     });
 
-    // 7. RSVP & Guestbook Management (Interactive + LocalStorage)
-    const initialWishes = [];
+    // 7. RSVP & Guestbook Management (Connected to Supabase + Realtime Sync)
+    const SUPABASE_URL = 'https://awvztssogkznfvakwkox.supabase.co';
+    const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_2AOB3x1tfsoedmqCGYmHzQ_qgr_Wu4n';
+    const WISHES_TABLE = 'wedding_wishes';
 
-    const LOCAL_STORAGE_KEY = 'wedding_wishes_wais_lulu_v2';
+    const supabaseClient = (window.supabase && typeof window.supabase.createClient === 'function')
+      ? window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
+          auth: { persistSession: false, autoRefreshToken: false }
+        })
+      : null;
 
-    function getSavedWishes() {
-      // Clear legacy sample wishes if present
-      localStorage.removeItem('wedding_wishes_wais_lulu');
-      const data = localStorage.getItem(LOCAL_STORAGE_KEY);
-      if (data) {
-        try {
-          return JSON.parse(data);
-        } catch (e) {
-          return [];
-        }
-      }
-      return [];
-    }
+    let wishesState = [];
+    let isLoadingWishes = true;
 
-    function saveWishes(wishes) {
-      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(wishes));
-    }
+    function formatWishTime(isoString) {
+      if (!isoString) return 'Baru saja';
+      const date = new Date(isoString);
+      if (isNaN(date.getTime())) return String(isoString);
 
-    function renderWishes() {
-      const wishes = getSavedWishes();
-      const container = document.getElementById('wishes-list');
-      const countBadge = document.getElementById('wishes-count');
-      
-      countBadge.textContent = `${wishes.length} Ucapan`;
-      container.innerHTML = '';
+      const diffSec = Math.floor((Date.now() - date.getTime()) / 1000);
+      if (diffSec < 60) return 'Baru saja';
+      const diffMin = Math.floor(diffSec / 60);
+      if (diffMin < 60) return `${diffMin} menit yang lalu`;
+      const diffHour = Math.floor(diffMin / 60);
+      if (diffHour < 24) return `${diffHour} jam yang lalu`;
+      const diffDay = Math.floor(diffHour / 24);
+      if (diffDay < 7) return `${diffDay} hari yang lalu`;
 
-      if (wishes.length === 0) {
-        container.innerHTML = `
-          <div class="text-center py-8 px-4 text-beige-600 bg-white/40 rounded-2xl border border-dashed border-beige-300">
-            <i class="fa-regular fa-comment-dots text-2xl text-beige-400 mb-2 block animate-breeze"></i>
-            <p class="text-xs italic">Belum ada ucapan. Jadilah yang pertama memberikan doa restu untuk kedua mempelai!</p>
-          </div>
-        `;
-        return;
-      }
-
-      wishes.forEach(wish => {
-        const item = document.createElement('div');
-        item.className = 'p-3.5 rounded-2xl bg-white/80 border border-beige-200/90 shadow-sm transition-all hover:bg-white';
-
-        const isHadir = wish.status === 'Hadir';
-        const badgeBg = isHadir ? 'bg-emerald-100 text-emerald-800 border-emerald-200' : 'bg-neutral-100 text-neutral-700 border-neutral-200';
-        const badgeIcon = isHadir ? 'fa-solid fa-check' : 'fa-solid fa-clock';
-
-        item.innerHTML = `
-          <div class="flex items-center justify-between gap-2 mb-1.5">
-            <div class="flex items-center gap-2">
-              <div class="w-7 h-7 rounded-full bg-beige-300 text-beige-900 font-bold text-xs flex items-center justify-center">
-                ${wish.name.charAt(0).toUpperCase()}
-              </div>
-              <span class="font-semibold text-xs sm:text-sm text-beige-900">${escapeHtml(wish.name)}</span>
-            </div>
-            <span class="text-[10px] px-2 py-0.5 rounded-full border font-semibold flex items-center gap-1 ${badgeBg}">
-              <i class="${badgeIcon} text-[8px]"></i>
-              <span>${wish.status}</span>
-            </span>
-          </div>
-          <p class="text-xs text-beige-800 leading-relaxed font-sans pl-9">
-            ${escapeHtml(wish.message)}
-          </p>
-          <div class="text-[9px] text-beige-500 pl-9 mt-1">
-            ${wish.time || 'Baru saja'}
-          </div>
-        `;
-        container.appendChild(item);
+      return date.toLocaleDateString('id-ID', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
       });
     }
 
@@ -2714,15 +2681,142 @@
         '"': '&quot;',
         "'": '&#039;'
       };
-      return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+      return String(text || '').replace(/[&<>"']/g, function(m) { return map[m]; });
+    }
+
+    function renderWishes() {
+      const container = document.getElementById('wishes-list');
+      const countBadge = document.getElementById('wishes-count');
+
+      if (isLoadingWishes) {
+        countBadge.textContent = 'Memuat...';
+        container.innerHTML = `
+          <div class="text-center py-8 px-4 text-beige-600 bg-white/40 rounded-2xl border border-dashed border-beige-300">
+            <i class="fa-solid fa-spinner fa-spin text-xl text-earth-gold mb-2 block"></i>
+            <p class="text-xs italic">Memuat doa & ucapan tamu...</p>
+          </div>
+        `;
+        return;
+      }
+
+      countBadge.textContent = `${wishesState.length} Ucapan`;
+      container.innerHTML = '';
+
+      if (wishesState.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-8 px-4 text-beige-600 bg-white/40 rounded-2xl border border-dashed border-beige-300">
+            <i class="fa-regular fa-comment-dots text-2xl text-beige-400 mb-2 block animate-breeze"></i>
+            <p class="text-xs italic">Belum ada ucapan. Jadilah yang pertama memberikan doa restu untuk kedua mempelai!</p>
+          </div>
+        `;
+        return;
+      }
+
+      wishesState.forEach(wish => {
+        const item = document.createElement('div');
+        item.className = 'p-3.5 rounded-2xl bg-white/80 border border-beige-200/90 shadow-sm transition-all hover:bg-white';
+
+        let badgeBg = 'bg-neutral-100 text-neutral-700 border-neutral-200';
+        let badgeIcon = 'fa-solid fa-xmark';
+        if (wish.status === 'Hadir') {
+          badgeBg = 'bg-emerald-100 text-emerald-800 border-emerald-200';
+          badgeIcon = 'fa-solid fa-check';
+        } else if (wish.status === 'Masih Ragu') {
+          badgeBg = 'bg-amber-100 text-amber-800 border-amber-200';
+          badgeIcon = 'fa-solid fa-clock';
+        }
+
+        const safeName = (wish.name || 'Tamu').trim();
+        const initial = safeName.charAt(0).toUpperCase() || 'T';
+        const guestInfo = (wish.status === 'Hadir' && wish.guest_count)
+          ? ` • ${escapeHtml(wish.guest_count)} Orang`
+          : '';
+
+        item.innerHTML = `
+          <div class="flex items-center justify-between gap-2 mb-1.5">
+            <div class="flex items-center gap-2">
+              <div class="w-7 h-7 rounded-full bg-beige-300 text-beige-900 font-bold text-xs flex items-center justify-center shrink-0">
+                ${escapeHtml(initial)}
+              </div>
+              <span class="font-semibold text-xs sm:text-sm text-beige-900">${escapeHtml(safeName)}</span>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded-full border font-semibold flex items-center gap-1 shrink-0 ${badgeBg}">
+              <i class="${badgeIcon} text-[8px]"></i>
+              <span>${escapeHtml(wish.status)}</span>
+            </span>
+          </div>
+          <p class="text-xs text-beige-800 leading-relaxed font-sans pl-9">
+            ${escapeHtml(wish.message)}
+          </p>
+          <div class="text-[9px] text-beige-500 pl-9 mt-1">
+            ${formatWishTime(wish.created_at)}${guestInfo}
+          </div>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    function prependWishIfMissing(newRow) {
+      if (!newRow) return;
+      if (newRow.id !== undefined && wishesState.some(w => w.id === newRow.id)) {
+        return;
+      }
+      wishesState.unshift(newRow);
+      renderWishes();
+    }
+
+    async function fetchWishesFromSupabase() {
+      if (!supabaseClient) {
+        isLoadingWishes = false;
+        renderWishes();
+        return;
+      }
+
+      isLoadingWishes = true;
+      renderWishes();
+
+      const { data, error } = await supabaseClient
+        .from(WISHES_TABLE)
+        .select('id, name, status, guest_count, message, created_at')
+        .order('created_at', { ascending: false })
+        .order('id', { ascending: false })
+        .limit(100);
+
+      isLoadingWishes = false;
+
+      if (error) {
+        console.error('Supabase fetch error:', error);
+        renderWishes();
+        return;
+      }
+
+      wishesState = Array.isArray(data) ? data : [];
+      renderWishes();
+    }
+
+    function subscribeWishesRealtime() {
+      if (!supabaseClient) return;
+
+      supabaseClient
+        .channel('public:wedding_wishes')
+        .on(
+          'postgres_changes',
+          { event: 'INSERT', schema: 'public', table: WISHES_TABLE },
+          (payload) => {
+            if (payload && payload.new) {
+              prependWishIfMissing(payload.new);
+            }
+          }
+        )
+        .subscribe();
     }
 
     const rsvpForm = document.getElementById('rsvp-form');
-    rsvpForm.addEventListener('submit', (e) => {
+    rsvpForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const name = document.getElementById('rsvp-name').value.trim();
       const status = document.getElementById('rsvp-status').value;
-      const count = document.getElementById('rsvp-count').value;
+      const count = document.getElementById('rsvp-count').value || '1';
       const message = document.getElementById('rsvp-message').value.trim();
 
       if (!name || !status || !message) {
@@ -2730,22 +2824,55 @@
         return;
       }
 
-      const newWish = {
-        name: name,
-        status: status,
-        count: count,
-        message: message,
-        time: "Baru saja"
-      };
+      if (!supabaseClient) {
+        showToast("Layanan database belum siap, silakan muat ulang halaman.", "fa-solid fa-triangle-exclamation text-amber-400");
+        return;
+      }
 
-      const wishes = getSavedWishes();
-      wishes.unshift(newWish);
-      saveWishes(wishes);
-      renderWishes();
+      const submitBtn = rsvpForm.querySelector('button[type="submit"]');
+      const originalBtnHtml = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+      submitBtn.innerHTML = `
+        <i class="fa-solid fa-spinner fa-spin text-earth-gold"></i>
+        <span>Mengirim...</span>
+      `;
 
-      // Reset form
-      document.getElementById('rsvp-message').value = '';
-      showToast("Terima kasih, konfirmasi & doa restu berhasil dikirim!");
+      try {
+        const { data, error } = await supabaseClient
+          .from(WISHES_TABLE)
+          .insert([{
+            name: name,
+            status: status,
+            guest_count: count,
+            message: message
+          }])
+          .select('id, name, status, guest_count, message, created_at')
+          .single();
+
+        if (error) {
+          console.error('Supabase insert error:', error);
+          if (error.code === 'PGRST205') {
+            showToast("Tabel database belum dibuat. Jalankan supabase_setup.sql di Supabase!", "fa-solid fa-triangle-exclamation text-amber-400");
+          } else {
+            showToast("Gagal mengirim ucapan, silakan coba lagi.", "fa-solid fa-triangle-exclamation text-amber-400");
+          }
+          return;
+        }
+
+        if (data) {
+          prependWishIfMissing(data);
+        } else {
+          await fetchWishesFromSupabase();
+        }
+
+        document.getElementById('rsvp-message').value = '';
+        showToast("Terima kasih, konfirmasi & doa restu berhasil dikirim!");
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+        submitBtn.innerHTML = originalBtnHtml;
+      }
     });
 
     // 8. Falling Petals / Pampas Float Particle Effect on Canvas
@@ -2859,7 +2986,8 @@
     // Initialize on Load
     document.addEventListener('DOMContentLoaded', () => {
       initGuestName();
-      renderWishes();
+      fetchWishesFromSupabase();
+      subscribeWishesRealtime();
       initPetals();
       initScrollspy();
     });
