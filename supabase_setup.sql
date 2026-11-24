@@ -1,10 +1,3 @@
--- ============================================================================
--- SUPABASE SETUP: RSVP & BUKU TAMU UNDANGAN WAIS & LULU (DENGAN EDIT & HAPUS)
--- Disesuaikan dengan Supabase Postgres Best Practices (2026)
--- Cara pakai: Buka Supabase Dashboard -> SQL Editor -> New Query -> Paste & Run
--- ============================================================================
-
--- 1. Helper function (SECURITY INVOKER) untuk membaca hash token pemilik dari header x-wish-token
 create or replace function public.current_wish_token_hash()
 returns text
 language sql
@@ -28,7 +21,6 @@ as $$
   end;
 $$;
 
--- 2. Buat tabel (jika belum ada) dengan tipe data optimal & SQL-standard bigint identity PK
 create table if not exists public.wedding_wishes (
   id bigint generated always as identity primary key,
   name text not null,
@@ -49,7 +41,6 @@ create table if not exists public.wedding_wishes (
     check (char_length(btrim(message)) between 1 and 1000)
 );
 
--- Migrasikan kolom baru secara idempotent jika tabel sudah dibuat sebelumnya
 alter table public.wedding_wishes
   add column if not exists token_hash text default public.current_wish_token_hash(),
   add column if not exists updated_at timestamptz;
@@ -57,7 +48,6 @@ alter table public.wedding_wishes
 alter table public.wedding_wishes
   alter column token_hash set default public.current_wish_token_hash();
 
--- Trigger otomatis untuk mengisi updated_at setiap kali ucapan diedit
 create or replace function public.touch_wedding_wishes_updated_at()
 returns trigger
 language plpgsql
@@ -76,7 +66,6 @@ create trigger trg_wedding_wishes_updated_at
   for each row
   execute function public.touch_wedding_wishes_updated_at();
 
--- 3. Index untuk query urutan terbaru, filter hadir, dan performa RLS token_hash
 create index if not exists wedding_wishes_created_at_id_idx
   on public.wedding_wishes (created_at desc, id desc);
 
@@ -87,7 +76,6 @@ create index if not exists wedding_wishes_hadir_idx
 create index if not exists wedding_wishes_token_hash_idx
   on public.wedding_wishes (token_hash);
 
--- 4. Principle of Least Privilege & Explicit Grants (Wajib sejak update Supabase Okt 2026)
 grant usage on schema public to anon, authenticated;
 revoke all on table public.wedding_wishes from anon, authenticated;
 grant select, insert, delete on table public.wedding_wishes to anon, authenticated;
@@ -104,7 +92,6 @@ begin
   end if;
 end $$;
 
--- 5. Row Level Security (RLS): Semua pengunjung bisa baca/kirim, hanya pemilik token yang bisa edit/hapus
 alter table public.wedding_wishes enable row level security;
 
 drop policy if exists "wedding_wishes_select_public" on public.wedding_wishes;
@@ -156,7 +143,6 @@ create policy "wedding_wishes_delete_own"
     and token_hash = (select public.current_wish_token_hash())
   );
 
--- 6. Pastikan tabel terdaftar di publikasi Supabase Realtime (INSERT, UPDATE, DELETE)
 do $$
 begin
   if exists (select 1 from pg_publication where pubname = 'supabase_realtime')
@@ -171,5 +157,4 @@ begin
   end if;
 end $$;
 
--- 7. Muat ulang cache skema PostgREST
 notify pgrst, 'reload schema';
